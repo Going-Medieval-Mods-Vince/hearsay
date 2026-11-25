@@ -20,13 +20,37 @@ namespace Hearsay
         public string Ask;    // the question a villager asked in this message, if any
     }
 
+    /// <summary>A villager waiting to have a word with you.</summary>
+    internal sealed class OpenWant
+    {
+        public string Id;
+        public string Note;    // what it's about, filled in when it came up (for the AI)
+        public int At;         // in-game hour (since founding) it came up
+    }
+
+    /// <summary>A request for a word that went unanswered, remembered until you next talk.</summary>
+    internal sealed class Snub
+    {
+        public string Id;
+        public string Note;
+        public bool Good;      // it was good news they wanted to share
+        public bool Waved;     // you closed the notice, rather than letting it lapse
+        public int Day;
+    }
+
     internal sealed class VillageState
     {
         public string Title;                    // how the villagers address the player; null = not asked yet
         public string TitleSetBy;               // who asked first
         public Dictionary<string, List<Message>> Chats = new Dictionary<string, List<Message>>();
         public Dictionary<string, string> Pending = new Dictionary<string, string>();
-        public Dictionary<string, int> LastSocialDay = new Dictionary<string, int>();   // settler -> day their Social need was last met by talking   // settler -> question awaiting your answer
+        public Dictionary<string, int> LastSocialDay = new Dictionary<string, int>();   // settler -> day their Social need was last met by talking
+
+        public Dictionary<string, OpenWant> Wants = new Dictionary<string, OpenWant>();   // settler -> waiting to talk
+        public Dictionary<string, int> WantLog = new Dictionary<string, int>();          // "settler|reason" -> day it last came up
+        public int LastWantAt = -1000;          // in-game hour of the last notice
+        public int LastStanding = -1;           // the settlement's standing last time we looked (to notice it growing)
+        public Dictionary<string, Snub> Snubs = new Dictionary<string, Snub>();         // settler -> a request you didn't answer
 
         [JsonIgnore] public string Key;
 
@@ -59,12 +83,47 @@ namespace Hearsay
                 if (File.Exists(p)) s = JsonConvert.DeserializeObject<VillageState>(File.ReadAllText(p));
             }
             catch (Exception e) { Plugin.Log.LogWarning("Hearsay: could not read village state, starting fresh: " + e.Message); }
+            s = s ?? Legacy(key);
             s = s ?? new VillageState();
             s.Chats = s.Chats ?? new Dictionary<string, List<Message>>();
             s.Pending = s.Pending ?? new Dictionary<string, string>();
             s.LastSocialDay = s.LastSocialDay ?? new Dictionary<string, int>();
+            s.Wants = s.Wants ?? new Dictionary<string, OpenWant>();
+            s.WantLog = s.WantLog ?? new Dictionary<string, int>();
+            s.Snubs = s.Snubs ?? new Dictionary<string, Snub>();
             s.Key = key;
             return s;
+        }
+
+        /// <summary>Older versions named the file after the village folder alone, so a new game with the same village name
+        /// picked up the old one. Such a file is taken over only when it plainly belongs to this game: its villagers are
+        /// the ones living here, and nothing in it happened later than today.</summary>
+        static VillageState Legacy(string key)
+        {
+            string folder = Facts.VillageFolder;
+            if (string.IsNullOrEmpty(folder) || folder == key) return null;
+            string p = PathFor(folder);
+            if (!File.Exists(p)) return null;
+            try
+            {
+                var old = JsonConvert.DeserializeObject<VillageState>(File.ReadAllText(p));
+                if (old?.Chats == null || old.Chats.Count == 0) return null;
+                var here = new HashSet<string>(Facts.Villagers().Select(SettlerKey));
+                int today = Facts.Today();
+                int lastDay = old.Chats.Values.SelectMany(c => c).Select(m => m.Day).DefaultIfEmpty(0).Max();
+                int known = old.Chats.Keys.Count(here.Contains);
+                bool ours = lastDay <= today + 1 && known * 2 >= old.Chats.Count && known > 0
+                            && old.Chats.Values.SelectMany(c => c).All(m => m.Day >= 1);
+                if (!ours)
+                {
+                    Plugin.Log.LogInfo($"Hearsay: {Path.GetFileName(p)} is from another game with the same village name; starting fresh");
+                    return null;
+                }
+                Plugin.Log.LogInfo($"Hearsay: carrying over conversations from {Path.GetFileName(p)}");
+                File.Move(p, p + ".moved");
+                return old;
+            }
+            catch (Exception e) { Plugin.Log.LogWarning("Hearsay: could not check old village file: " + e.Message); return null; }
         }
 
         /// <summary>Most messages kept per conversation; older ones are dropped when saving.</summary>
@@ -90,8 +149,10 @@ namespace Hearsay
         /// villagers get when they chat (InteractionAffectSocial), at most once per in-game day per villager.</summary>
         internal void Talked(HumanoidInstance h)
         {
-            if (!Plugin.SocialBoost.Value || h == null || h.HasDisposed || h.HasDied) return;
+            if (h == null) return;
             string k = SettlerKey(h);
+            if (Snubs.Remove(k)) Save();   // they've had their chance to bring it up
+            if (!Plugin.SocialBoost.Value || h.HasDisposed || h.HasDied) return;
             int today = Facts.Today();
             if (LastSocialDay.TryGetValue(k, out var day) && day >= today) return;
             bool ok = Facts.Safe(() => h.Stats.StartEffector("InteractionAffectSocial"));

@@ -23,8 +23,11 @@ namespace Hearsay
     {
         internal HumanoidInstance H;
         internal float Mood = 50f, Age, Temp;
-        internal int Pop, Day, Hour, Talks;
-        internal double FoodDays = 99;
+        internal int Pop, Day, Hour, Talks, Standing;
+        internal float Wealth, MinMood = 50f, AvgMood = 50f;
+        internal bool CaresAnimals, StandingUp, Snubbed, SnubbedGood;
+        internal string AnimalTrouble, Pet;
+        internal double FoodDays = 99, LarderDays = 99;   // ready to eat; ready plus carcasses still to butcher
         internal bool Woman, Wounded, Untended;
         internal string Season = "", Faith = "", FaithLevel, Title, Village, Town, Role, Background, BackgroundId, Wound;
         internal string Worst, Best;   // strongest bad / good effect, by the game's name
@@ -103,11 +106,21 @@ namespace Hearsay
             }
             var people = Facts.Villagers();
             s.Pop = people.Count;
-            s.FoodDays = Facts.FoodDays(people);
+            var larder = Facts.Food();
+            s.FoodDays = Facts.FoodDays(people, larder);
+            s.LarderDays = s.FoodDays >= 99 ? 99 : s.FoodDays + Facts.CarcassDays(people, larder);
+            s.Standing = Facts.Standing(people.Count, out s.Wealth);
             s.Talks = v?.ChatWith(h).Count(m => m.FromPlayer) ?? 0;
+            s.StandingUp = v != null && v.LastStanding >= 0 && s.Standing > v.LastStanding;
+            if (v != null && h != null && v.Snubs.TryGetValue(VillageState.SettlerKey(h), out var snub)) { s.Snubbed = !snub.Good; s.SnubbedGood = snub.Good; }
 
             if (deep)
             {
+                var moods = people.Select(o => Safe(() => o.Stats.GetStat(StatType.Mood)?.Current) ?? 50f).ToList();
+                if (moods.Count > 0) { s.MinMood = moods.Min(); s.AvgMood = moods.Average(); }
+                s.CaresAnimals = Facts.Cares(h) != null;
+                s.AnimalTrouble = Facts.AnimalTrouble();
+                s.Pet = Facts.PetOf(h);
                 var settings = Safe(() => Repository<SocialCompatibilitySettingsRepository, SocialCompatibilitySettings>.Instance.Settings());
                 foreach (var o in people.Where(o => o != h))
                 {
@@ -183,6 +196,12 @@ namespace Hearsay
                 case "woman": return Woman;
                 case "man": return !Woman;
                 case "night": return Hour < 6 || Hour >= 21;
+                case "caresanimals": return CaresAnimals;
+                case "animaltrouble": return AnimalTrouble != null;
+                case "haspet": return Pet != null;
+                case "standingup": return StandingUp;
+                case "snubbed": return Snubbed;          // a worry they raised went unanswered
+                case "snubbedgood": return SnubbedGood;  // good news they wanted to share went unheard
                 case "chance": return args.Length > 0 && double.TryParse(args[0], NumberStyles.Float, CultureInfo.InvariantCulture, out var p) && UnityEngine.Random.value * 100 < p;
                 default:
                     Plugin.Log.LogWarning("Hearsay: unknown condition '" + token + "' in a dialogue file");
@@ -223,12 +242,17 @@ namespace Hearsay
             {
                 case "mood": return Mood;
                 case "food": return FoodDays;
+                case "larder": return LarderDays;
                 case "pop": return Pop;
                 case "day": return Day;
                 case "hour": return Hour;
                 case "temp": return Temp;
                 case "age": return Age;
                 case "talks": return Talks;
+                case "standing": return Standing;
+                case "wealth": return Wealth;
+                case "minmood": return MinMood;
+                case "avgmood": return AvgMood;
                 case "friends": return Friends.Count;
                 case "rivals": return Rivals.Count;
                 case "o.mood": return OtherScene?.Mood ?? double.NaN;
@@ -281,6 +305,9 @@ namespace Hearsay
                 case "worst": return Worst?.ToLowerInvariant();
                 case "best": return Best?.ToLowerInvariant();
                 case "wound": return Wound;
+                case "animal": return AnimalTrouble;
+                case "pet": return Pet;
+                case "standing": return Facts.StandingName(Standing);
                 case "role": return Role?.ToLowerInvariant();
                 case "background": return Background?.ToLowerInvariant();
                 case "faithlevel": return FaithLevel?.ToLowerInvariant();

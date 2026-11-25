@@ -17,26 +17,25 @@ namespace Hearsay
 {
     internal static class SettingsWindow
     {
-        const float Width = 780f, Height = 700f, Pad = 22f, RowHeight = 42f, LabelWidth = 210f;
+        const float Width = 780f, Height = 850f, Pad = 22f, RowHeight = 42f, LabelWidth = 210f;
         static readonly Color Picked = new Color(1f, 0.82f, 0.45f), Normal = Color.white;
         static readonly Color Good = new Color(0.62f, 0.83f, 0.6f), Bad = new Color(0.89f, 0.51f, 0.44f), Dim = new Color(0.75f, 0.73f, 0.68f);
 
         static Popup popup;
         static TMP_Text style, status, history, length, titleText;
-        static TMP_InputField key, model;
+        static TMP_InputField key, model, server;
         static SoundButton tpl;
         static readonly Dictionary<string, GameObject> modeButtons = new Dictionary<string, GameObject>();
         static readonly Dictionary<string, GameObject> thinkButtons = new Dictionary<string, GameObject>();
         static bool testing;
-        static GameObject socialOn, socialOff;
+        static GameObject socialOn, socialOff, askOn, askOff, moodsOn, moodsOff;
 
         internal static void Open(Transform over = null)
         {
             if (!Ensure()) { Plugin.Log.LogWarning("Hearsay: no popup frame found to build the settings window from"); return; }
             if (popup.Title != null) popup.Title.text = "HEARSAY";
             popup.Show();
-            key.text = Plugin.ApiKey.Value ?? "";
-            model.text = Plugin.Model.Value ?? "";
+            LoadFields();
             SetStatus(ModeHelp(), Dim);
             Refresh();
         }
@@ -45,6 +44,7 @@ namespace Hearsay
         static bool Ensure()
         {
             if (popup != null && popup.Panel != null) return true;
+            modeButtons.Clear(); thinkButtons.Clear();
             var p = Popup.Build("HearsaySettings", Width, Height, SaveFields);
             if (p == null) return false;
             style = p.Title;
@@ -62,14 +62,18 @@ namespace Hearsay
                 modeButtons[m] = Small(row, m == "Written" ? "Written" : m, 120f, () => { Plugin.Mode.Value = mode; SetStatus(ModeHelp(), Dim); Refresh(); });
             }
 
-            row = Row(list, "Gemini API key");
-            key = Field(row, "Paste your key from aistudio.google.com/apikey", 200);
+            row = Row(list, "Server");
+            server = Field(row, "https://openrouter.ai/api/v1", 200);
+            server.onEndEdit.AddListener(_ => Guard(SaveFields));
+
+            row = Row(list, "API key");
+            key = Field(row, "Paste your key", 300);
             key.contentType = TMP_InputField.ContentType.Password;
             key.onEndEdit.AddListener(_ => Guard(SaveFields));
             Small(row, "Test", 90f, TestKey);
 
             row = Row(list, "Model");
-            model = Field(row, "gemini-3.8-flash", 80);
+            model = Field(row, "gemini-3.8-flash, openrouter/auto, llama3.1, ...", 120);
             model.onEndEdit.AddListener(_ => Guard(SaveFields));
 
             row = Row(list, "Thinking");
@@ -93,6 +97,16 @@ namespace Hearsay
             socialOn = Small(row, "On", 90f, () => { Plugin.SocialBoost.Value = true; Refresh(); });
             socialOff = Small(row, "Off", 90f, () => { Plugin.SocialBoost.Value = false; Refresh(); });
             var hint = Value(row, 260f); hint.text = "once a day per villager"; hint.color = Dim; hint.fontSize = 17f;
+
+            row = Row(list, "Villagers ask to talk");
+            askOn = Small(row, "On", 90f, () => { Plugin.AskToTalk.Value = true; Refresh(); });
+            askOff = Small(row, "Off", 90f, () => { Plugin.AskToTalk.Value = false; Refresh(); });
+            hint = Value(row, 260f); hint.text = "good news and worries, a few a day"; hint.color = Dim; hint.fontSize = 17f;
+
+            row = Row(list, "Answering matters");
+            moodsOn = Small(row, "On", 90f, () => { Plugin.RequestMoods.Value = true; Refresh(); });
+            moodsOff = Small(row, "Off", 90f, () => { Plugin.RequestMoods.Value = false; Refresh(); });
+            hint = Value(row, 260f); hint.text = "quick answer lifts mood, an ignored worry stings"; hint.color = Dim; hint.fontSize = 17f;
 
             row = Row(list, "This village");
             titleText = Value(row, 300f);
@@ -161,6 +175,8 @@ namespace Hearsay
             foreach (var kv in modeButtons) Mark(kv.Value, string.Equals(kv.Key, Plugin.Mode.Value, StringComparison.OrdinalIgnoreCase));
             foreach (var kv in thinkButtons) Mark(kv.Value, string.Equals(kv.Key, Plugin.Thinking.Value?.Trim(), StringComparison.OrdinalIgnoreCase));
             Mark(socialOn, Plugin.SocialBoost.Value); Mark(socialOff, !Plugin.SocialBoost.Value);
+            Mark(askOn, Plugin.AskToTalk.Value); Mark(askOff, !Plugin.AskToTalk.Value);
+            Mark(moodsOn, Plugin.RequestMoods.Value); Mark(moodsOff, !Plugin.RequestMoods.Value);
             history.text = Plugin.HistoryTurns.Value.ToString();
             length.text = Plugin.MaxReplyTokens.Value.ToString();
             var v = VillageState.Current;
@@ -177,21 +193,31 @@ namespace Hearsay
 
         static string ModeHelp()
         {
-            bool hasKey = !string.IsNullOrWhiteSpace(Plugin.ApiKey.Value);
+            bool ready = Plugin.AiReady;
+            const string need = "a server, key and model above (or a local server such as Ollama, which needs no key)";
             switch (Plugin.Mode.Value)
             {
                 case "Written": return "Written: pick what to say from a list; villagers answer with written lines from their live situation. No key needed.";
-                case "AI": return hasKey ? "AI: type freely, Gemini answers. Topics show as quick prompts." : "AI: needs a Gemini key (free at aistudio.google.com/apikey).";
-                default: return hasKey ? "Auto: a key is set, so Gemini answers. Remove the key to use written dialogue." : "Auto: no key, so villagers use written dialogue. Add a key for free-typed AI chat.";
+                case "AI": return ready ? $"AI: type freely, {Plugin.ModelName} answers. Topics show as quick prompts." : $"AI: needs {need}.";
+                default: return ready ? $"Auto: the AI is set up, so {Plugin.ModelName} answers. Choose Written to play without it." : $"Auto: the AI isn't set up, so villagers use written dialogue. For free-typed AI chat add {need}.";
             }
+        }
+
+        static void LoadFields()
+        {
+            if (key == null) return;
+            key.text = Plugin.ApiKey.Value ?? "";
+            model.text = Plugin.ModelId.Value ?? "";
+            server.text = Plugin.ServerUrl.Value ?? "";
         }
 
         static void SaveFields()
         {
             if (key == null) return;
-            string k = key.text?.Trim() ?? "", m = model.text?.Trim() ?? "";
+            string k = key.text?.Trim() ?? "", m = model.text?.Trim() ?? "", u = server.text?.Trim() ?? "";
             if (k != (Plugin.ApiKey.Value ?? "")) Plugin.ApiKey.Value = k;
-            if (m.Length > 0 && m != Plugin.Model.Value) Plugin.Model.Value = m;
+            if (m.Length > 0 && m != Plugin.ModelId.Value) Plugin.ModelId.Value = m;
+            if (u.Length > 0 && u != Plugin.ServerUrl.Value) Plugin.ServerUrl.Value = u;
             if (popup != null && popup.IsOpen) { SetStatus(ModeHelp(), Dim); Refresh(); }
         }
 
@@ -199,16 +225,16 @@ namespace Hearsay
         {
             SaveFields();
             if (testing) return;
-            if (string.IsNullOrWhiteSpace(Plugin.ApiKey.Value)) { SetStatus("Paste a key first.", Bad); return; }
+            if (!Plugin.AiReady) { SetStatus(Plugin.ModelName.Length == 0 ? "Enter a model first." : "Paste a key first.", Bad); return; }
             testing = true;
-            SetStatus($"Asking {Plugin.Model.Value}…", Dim);
-            var turns = new List<Gemini.Turn> { new Gemini.Turn { FromPlayer = true, Text = "Are you there? Answer in three words." } };
-            Gemini.Ask("You are a villager in a medieval game, answering a test call.", turns, (reply, error) =>
+            SetStatus($"Asking {Plugin.ModelName}…", Dim);
+            var turns = new List<Llm.Turn> { new Llm.Turn { FromPlayer = true, Text = "Are you there? Answer in three words." } };
+            Llm.Ask("You are a villager in a medieval game, answering a test call.", turns, null, (reply, error) =>
             {
                 testing = false;
                 if (status == null) return;
                 if (error != null) SetStatus("That didn't work: " + error, Bad);
-                else SetStatus($"The key works. {Plugin.Model.Value} answered: \"{reply}\"", Good);
+                else SetStatus($"It works. {Plugin.ModelName} answered: \"{reply}\"", Good);
             });
         }
 
@@ -251,7 +277,7 @@ namespace Hearsay
                 foreach (var tip in go.GetComponentsInChildren<LocalizedTextTooltipView>(true))
                 {
                     tip.TextKeys = new List<string>();
-                    tip.SetNonLocalizedText("Hearsay settings: replies, Gemini key, model, title");
+                    tip.SetNonLocalizedText("Hearsay settings: replies, AI service, model, title");
                 }
                 var b = go.GetComponent<SoundButton>();
                 b.onClick = new Button.ButtonClickedEvent();

@@ -1,3537 +1,4135 @@
 {
- "groups": {
-  "hungry": "fx:SlightlyHungry|Hungry|VeryHungry|HungryStout|VeryHungryStout|HungryAustere|VeryHungryAustere",
-  "starving": "fx:Starving|StarvingStout|StarvingAustere|StarvationLoosHP|StarvationLoosMalnutrition*|Malnutrition*",
-  "tired": "fx:SlightNeedSleep|NeedSleep|ExtremeNeedSleep*",
-  "exhausted": "fx:ExtremeNeedSleep*",
-  "cold": "fx:Freezing|Cold|Chilly|FreezinDying",
-  "hot": "fx:Sweaty|Hot|VeryHot*",
-  "wet": "fx:WetLow|WetMed|WetHigh",
-  "sleptbad": "fx:SleptOutside|SleptOnRain|SleptOnSnow|SleptWithoutBed",
-  "goodroom": "fx:SleptInBedroomGood|SleptInBedroomSlightlyImpressive|SleptInBedroomSomewhatImpressive|SleptInBedroomVeryImpressive|SleptInBedroomExtremelyImpressive|SleptInHighestQualityBed|SleptInHighQualityBed",
-  "badroom": "fx:SleptInBedroomAwful|SleptInBedroomDull|SleptInSharedBedroomAwful|SleptInSharedBedroomDull|SleptInLowQualityBed",
-  "atewell": "fx:AteLavishMeal|AteWell|AteInGreatHallGood|AteInGreatHallSlightlyImpressive|AteInGreatHallSomewhatImpressive|AteInGreatHallVeryImpressive|AteInGreatHallExtremelyImpressive",
-  "atebad": "fx:AteRawMeal|AteRotten|AteDubiousMeal|AteRawMeat|AteSameMealType|AteInGreatHallAwful",
-  "grief": "fx:WorkerDiedFriend|SawDeadBodyFriend|BanishedVillagerFriend|BeliefFriendDied*",
-  "death": "fx:WorkerDied|SawDeadBody|BanishedVillager",
-  "rivalgone": "fx:WorkerDiedRival|BanishedVillagerRival",
-  "lonely": "fx:SocialNeedLow",
-  "bored": "fx:EntertainmentNeed|EntertainmentDeprived",
-  "faithneed": "fx:FaithNeed|FaithDeprived",
-  "faithful": "fx:FaithFull|InChapelMoodPlus*|InPaganChapelMoodPlus*",
-  "faithless": "fx:FaithlessFaithDisable",
-  "thirsty": "fx:AlcoholNeedMed|AlcoholNeedHigh",
-  "drunk": "fx:InebriatedMed*|InebriatedHigh*|InebriatedVeryHigh*",
-  "stomach": "fx:StomachHurt*|VomitAnim|VomitAfter",
-  "pain": "fx:ConDmgPain*|ConDmgBloodLoss*",
-  "passionwork": "fx:DidJobWithPassion|GoalPreferencePositive|GoalPreferenceVeryPositive",
-  "hatedwork": "fx:GoalPreferenceNegative|GoalPreferenceVeryNegative",
-  "raidwon": "fx:RaidWonEffector|BeliefRaidWon*",
-  "raidlost": "fx:BeliefRaidLost*",
-  "feastgood": "fx:EventFeastOutcomeGood*|EventFeastOutcomeVeryGood*|EventFeastOutcomeUnforgettable*|EventFeastNonParticipant*",
-  "feastbad": "fx:EventFeastOutcomeTerrible*|EventFeastOutcomeVeryBad*|EventFeastOutcomeBad*",
-  "sermongood": "fx:EventSermonOutcomeGood*|EventSermonOutcomeVeryGood*|EventSermonOutcomeUnforgettable*|EventRitualOutcomeGood*|EventRitualOutcomeVeryGood*|EventRitualOutcomeUnforgettable*",
-  "ugly": "fx:SurroundingsHorrible|SurroundingsUgly|DungProximity",
-  "pretty": "fx:SurroundingPretty|SurroundingBeautiful",
-  "gooddream": "fx:GoodDream*",
-  "baddream": "fx:BadDream*",
-  "jealous": "fx:JealousBedroom|WantsOwnRoom",
-  "newcomer": "fx:NewVillagerInitialOptimisam",
-  "unpaid": "fx:DidntPayMercenaries|PartiallyPaidMercenaries",
-  "fight": "fx:AfterFightNegative",
-  "merry": "fx:*Merry",
-  "rags": "fx:UglyClothing",
-  "fineclothes": "fx:FineClothing",
-  "justwoke": "fx:JustWokeUp",
-  "comfy": "fx:ComfortableVery|ComfortableExtremely",
-  "uncomfy": "fx:ComfortableLow",
-  "execution": "fx:EventExecutionGallowsNegative|ExecutedPrisoner*",
-  "cannibalism": "fx:AteHumanFlesh*|ButcheredHuman*|CookedHumanMeat",
-  "gloomy": "fx:SmallRoomNoWindows"
- },
- "skills": {
-  "AnimalHandling": "tending the animals",
-  "Botanical": "working the fields",
-  "Carpentry": "carpentry",
-  "Construction": "building",
-  "Culinary": "cooking",
-  "Intelectual": "study and research",
-  "Marksman": "the bow",
-  "Medicine": "healing",
-  "Melee": "fighting",
-  "Smithing": "the forge",
-  "Speechcraft": "talking with folk",
-  "Tailoring": "sewing",
-  "Mining": "digging",
-  "Art": "carving and art"
- },
- "greet": [
-  {
-   "when": [
-    "title"
-   ],
-   "say": [
-    "{Title}. What can I do for you?",
-    "Aye, {title}?",
-    "You wanted a word, {title}?",
-    "{Title}! Good to see you.",
-    "Oh, {title}. Come, sit a moment."
-   ]
+  "groups": {
+    "hungry": "fx:SlightlyHungry|Hungry|VeryHungry|HungryStout|VeryHungryStout|HungryAustere|VeryHungryAustere",
+    "starving": "fx:Starving|StarvingStout|StarvingAustere|StarvationLoosHP|StarvationLoosMalnutrition*|Malnutrition*",
+    "tired": "fx:SlightNeedSleep|NeedSleep|ExtremeNeedSleep*",
+    "exhausted": "fx:ExtremeNeedSleep*",
+    "cold": "fx:Freezing|Cold|Chilly|FreezinDying",
+    "hot": "fx:Sweaty|Hot|VeryHot*",
+    "wet": "fx:WetLow|WetMed|WetHigh",
+    "sleptbad": "fx:SleptOutside|SleptOnRain|SleptOnSnow|SleptWithoutBed",
+    "goodroom": "fx:SleptInBedroomGood|SleptInBedroomSlightlyImpressive|SleptInBedroomSomewhatImpressive|SleptInBedroomVeryImpressive|SleptInBedroomExtremelyImpressive|SleptInHighestQualityBed|SleptInHighQualityBed",
+    "badroom": "fx:SleptInBedroomAwful|SleptInBedroomDull|SleptInSharedBedroomAwful|SleptInSharedBedroomDull|SleptInLowQualityBed",
+    "atewell": "fx:AteLavishMeal|AteWell|AteInGreatHallGood|AteInGreatHallSlightlyImpressive|AteInGreatHallSomewhatImpressive|AteInGreatHallVeryImpressive|AteInGreatHallExtremelyImpressive",
+    "atebad": "fx:AteRawMeal|AteRotten|AteDubiousMeal|AteRawMeat|AteSameMealType|AteInGreatHallAwful",
+    "grief": "fx:WorkerDiedFriend|SawDeadBodyFriend|BanishedVillagerFriend|BeliefFriendDied*",
+    "death": "fx:WorkerDied|SawDeadBody|BanishedVillager",
+    "rivalgone": "fx:WorkerDiedRival|BanishedVillagerRival",
+    "lonely": "fx:SocialNeedLow",
+    "bored": "fx:EntertainmentNeed|EntertainmentDeprived",
+    "faithneed": "fx:FaithNeed|FaithDeprived",
+    "faithful": "fx:FaithFull|InChapelMoodPlus*|InPaganChapelMoodPlus*",
+    "faithless": "fx:FaithlessFaithDisable",
+    "thirsty": "fx:AlcoholNeedMed|AlcoholNeedHigh",
+    "drunk": "fx:InebriatedMed*|InebriatedHigh*|InebriatedVeryHigh*",
+    "stomach": "fx:StomachHurt*|VomitAnim|VomitAfter",
+    "pain": "fx:ConDmgPain*|ConDmgBloodLoss*",
+    "passionwork": "fx:DidJobWithPassion|GoalPreferencePositive|GoalPreferenceVeryPositive",
+    "hatedwork": "fx:GoalPreferenceNegative|GoalPreferenceVeryNegative",
+    "raidwon": "fx:RaidWonEffector|BeliefRaidWon*",
+    "raidlost": "fx:BeliefRaidLost*",
+    "feastgood": "fx:EventFeastOutcomeGood*|EventFeastOutcomeVeryGood*|EventFeastOutcomeUnforgettable*|EventFeastNonParticipant*",
+    "feastbad": "fx:EventFeastOutcomeTerrible*|EventFeastOutcomeVeryBad*|EventFeastOutcomeBad*",
+    "sermongood": "fx:EventSermonOutcomeGood*|EventSermonOutcomeVeryGood*|EventSermonOutcomeUnforgettable*|EventRitualOutcomeGood*|EventRitualOutcomeVeryGood*|EventRitualOutcomeUnforgettable*",
+    "ugly": "fx:SurroundingsHorrible|SurroundingsUgly|DungProximity",
+    "pretty": "fx:SurroundingPretty|SurroundingBeautiful",
+    "gooddream": "fx:GoodDream*",
+    "baddream": "fx:BadDream*",
+    "jealous": "fx:JealousBedroom|WantsOwnRoom",
+    "newcomer": "fx:NewVillagerInitialOptimisam",
+    "unpaid": "fx:DidntPayMercenaries|PartiallyPaidMercenaries",
+    "fight": "fx:AfterFightNegative",
+    "merry": "fx:*Merry",
+    "rags": "fx:UglyClothing",
+    "fineclothes": "fx:FineClothing",
+    "justwoke": "fx:JustWokeUp",
+    "comfy": "fx:ComfortableVery|ComfortableExtremely",
+    "uncomfy": "fx:ComfortableLow",
+    "execution": "fx:EventExecutionGallowsNegative|ExecutedPrisoner*",
+    "cannibalism": "fx:AteHumanFlesh*|ButcheredHuman*|CookedHumanMeat",
+    "gloomy": "fx:SmallRoomNoWindows"
   },
-  {
-   "when": [],
-   "say": [
-    "Aye?",
-    "You wanted a word?",
-    "Oh, hello there."
-   ]
+  "skills": {
+    "AnimalHandling": "tending the animals",
+    "Botanical": "working the fields",
+    "Carpentry": "carpentry",
+    "Construction": "building",
+    "Culinary": "cooking",
+    "Intelectual": "study and research",
+    "Marksman": "the bow",
+    "Medicine": "healing",
+    "Melee": "fighting",
+    "Smithing": "the forge",
+    "Speechcraft": "talking with folk",
+    "Tailoring": "sewing",
+    "Mining": "digging",
+    "Art": "carving and art"
   },
-  {
-   "when": [
-    "title",
-    "mood<20"
-   ],
-   "say": [
-    "What now?",
-    "{Title}. If this is about work, I can barely stand.",
-    "Oh. It's you, {title}."
-   ]
-  },
-  {
-   "when": [
-    "title",
-    "mood<35"
-   ],
-   "say": [
-    "{Title}. What is it?",
-    "Aye, {title}? Make it quick, I'm not at my best."
-   ]
-  },
-  {
-   "when": [
-    "title",
-    "mood>=75"
-   ],
-   "say": [
-    "{Title}! Fine day, isn't it?",
-    "Ah, {title}! I was hoping you'd come by.",
-    "{Title}! What a day. What can I do for you?"
-   ]
-  },
-  {
-   "when": [
-    "title",
-    "night"
-   ],
-   "say": [
-    "{Title}? At this hour?",
-    "Can't sleep either, {title}?"
-   ],
-   "p": 1
-  },
-  {
-   "when": [
-    "title",
-    "@justwoke"
-   ],
-   "say": [
-    "Mm. Barely awake, {title}. What is it?"
-   ],
-   "p": 1
-  },
-  {
-   "when": [
-    "title",
-    "@hungry"
-   ],
-   "say": [
-    "{Title}. Is there anything to eat about? Sorry. What is it?"
-   ],
-   "p": 1
-  },
-  {
-   "when": [
-    "title",
-    "season:winter"
-   ],
-   "say": [
-    "Cold one today, {title}.",
-    "{Title}. Mind the ice."
-   ]
-  },
-  {
-   "when": [
-    "title",
-    "@drunk"
-   ],
-   "say": [
-    "{Title}! My favourite person. Probably."
-   ],
-   "p": 2
-  },
-  {
-   "when": [
-    "title",
-    "@grief"
-   ],
-   "say": [
-    "{Title}. Sorry, I'm not much company today."
-   ],
-   "p": 2
-  }
- ],
- "topics": [
-  {
-   "id": "wound",
-   "label": "Let me see that wound.",
-   "when": [
-    "wounded"
-   ],
-   "order": 5,
-   "parts": [
-    [
-     {
-      "when": [
-       "wounded"
-      ],
-      "say": [
-       "It's my {wound}. It hurts, but I'll live.",
-       "Just a {wound}. I've had worse. Probably."
-      ]
-     },
-     {
-      "when": [
-       "untended"
-      ],
-      "say": [
-       "My {wound}. Nobody's looked at it yet, and it's getting worse.",
-       "Careful! It's raw. It hasn't been seen to."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@pain"
-      ],
-      "say": [
-       "Every step hurts.",
-       "It hurts more than I let on."
-      ],
-      "p": 2
-     }
-    ]
-   ]
-  },
-  {
-   "id": "how",
-   "label": "How are you holding up?",
-   "order": 10,
-   "parts": [
-    [
-     {
-      "when": [
-       "mood<20"
-      ],
-      "say": [
-       "Badly. I'm at the end of my rope.",
-       "Not well. Some days I wonder why we came here at all.",
-       "Honestly? I could scream. Or weep. I haven't decided which.",
-       "I'm hanging on by a thread, {title}."
-      ]
-     },
-     {
-      "when": [
-       "mood<35"
-      ],
-      "say": [
-       "Not great, if I'm honest.",
-       "I've had better days. Many better days.",
-       "Tired and sour. Don't take it personally.",
-       "Low. I'll get through it."
-      ]
-     },
-     {
-      "when": [
-       "mood<55"
-      ],
-      "say": [
-       "Getting by.",
-       "Well enough, I suppose.",
-       "Fair to middling, as my mother used to say.",
-       "Can't complain. Well, I could, but who'd listen?"
-      ]
-     },
-     {
-      "when": [
-       "mood<75"
-      ],
-      "say": [
-       "Good, {title}. Truly.",
-       "Better than I expected, out here.",
-       "I'm well. The work keeps my mind busy.",
-       "Not bad at all."
-      ]
-     },
-     {
-      "when": [
-       "mood>=75"
-      ],
-      "say": [
-       "Wonderful! I can't remember the last time I felt this good.",
-       "Never better, {title}.",
-       "Happy, believe it or not. This place is starting to feel like home.",
-       "I feel like I could lift a cart."
-      ]
-     }
-    ],
-    [
-     {
-      "when": [],
-      "say": [
-       ""
-      ]
-     },
-     {
-      "when": [
-       "mood<45"
-      ],
-      "say": [
-       "If you want to know, it's mostly this: {worst}.",
-       "{Worst}. That's what's weighing on me."
-      ]
-     },
-     {
-      "when": [
-       "mood>=60"
-      ],
-      "say": [
-       "{Best}, that's what's done it.",
-       "It's the little things. {Best}, for one."
-      ]
-     },
-     {
-      "when": [
-       "@starving"
-      ],
-      "say": [
-       "My belly's been empty so long it's stopped growling.",
-       "I'm starving. Really starving."
-      ],
-      "p": 5
-     },
-     {
-      "when": [
-       "@hungry"
-      ],
-      "say": [
-       "I could do with a meal, though.",
-       "My stomach's been grumbling since morning."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@exhausted"
-      ],
-      "say": [
-       "And I'm so tired I could sleep standing up."
-      ],
-      "p": 5
-     },
-     {
-      "when": [
-       "@tired"
-      ],
-      "say": [
-       "And I'm dead on my feet.",
-       "I'd give a lot for a few hours of sleep."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@cold"
-      ],
-      "say": [
-       "And I can't get warm, no matter what I do.",
-       "This cold gets into the bones."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@hot"
-      ],
-      "say": [
-       "This heat is wearing me down.",
-       "I'm sweating like a smith at the forge."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@wet"
-      ],
-      "say": [
-       "And I'm soaked through.",
-       "I'd like to be dry again, one day."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "untended"
-      ],
-      "say": [
-       "This {wound} hasn't been seen to, and it hurts.",
-       "My {wound} needs tending. It's getting worse."
-      ],
-      "p": 6
-     },
-     {
-      "when": [
-       "wounded"
-      ],
-      "say": [
-       "The {wound} still aches, but it's been seen to.",
-       "My {wound} is mending, slowly."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@grief"
-      ],
-      "say": [
-       "And I can't stop thinking about the one we lost.",
-       "I keep seeing the grave in my mind."
-      ],
-      "p": 6
-     },
-     {
-      "when": [
-       "@death"
-      ],
-      "say": [
-       "There's been too much death around here.",
-       "I keep thinking about that body."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@rivalgone"
-      ],
-      "say": [
-       "I won't pretend I miss everyone who's gone."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@sleptbad"
-      ],
-      "say": [
-       "Sleeping on the bare ground doesn't help.",
-       "My back is in knots from sleeping in the dirt."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@lonely"
-      ],
-      "say": [
-       "I've barely had a word with anyone in days.",
-       "It gets lonely."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@bored"
-      ],
-      "say": [
-       "Truth be told, I'm bored out of my skull. Work, eat, sleep, work.",
-       "I need something to do that isn't work."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@faithneed"
-      ],
-      "say": [
-       "And I haven't had a chance to pray. It weighs on me."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@thirsty"
-      ],
-      "say": [
-       "I could really use a drink.",
-       "My throat's been dry for days, if you take my meaning."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@drunk"
-      ],
-      "say": [
-       "And, er, I may have had a drink or two.",
-       "Is the ground moving, or is it me?"
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@stomach"
-      ],
-      "say": [
-       "My stomach's in a bad way. Something I ate."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@atebad"
-      ],
-      "say": [
-       "That last meal wasn't fit for pigs.",
-       "The food's been grim lately."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@atewell"
-      ],
-      "say": [
-       "That last meal was something else, though.",
-       "Good food helps more than you'd think."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@goodroom"
-      ],
-      "say": [
-       "And I'm sleeping well in that room of mine."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@badroom"
-      ],
-      "say": [
-       "My room is a miserable hole, though."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@gloomy"
-      ],
-      "say": [
-       "Those dark little rooms with no windows get to me."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@feastgood"
-      ],
-      "say": [
-       "And that feast! People will be talking about it for a year."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@feastbad"
-      ],
-      "say": [
-       "That feast was a disappointment, though. Let's not pretend otherwise."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@sermongood"
-      ],
-      "say": [
-       "That last gathering lifted my spirits."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@raidwon"
-      ],
-      "say": [
-       "And we sent those raiders running, didn't we?"
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@raidlost"
-      ],
-      "say": [
-       "I can't stop thinking about that raid. We lost."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@gooddream"
-      ],
-      "say": [
-       "I had the loveliest dream last night."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@baddream"
-      ],
-      "say": [
-       "I had a horrible dream last night. Can't shake it."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@ugly"
-      ],
-      "say": [
-       "This place could do with some tidying. It's grim to look at."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@pretty"
-      ],
-      "say": [
-       "And it's pleasant here. Someone's made it nice."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@passionwork",
-       "loves"
-      ],
-      "say": [
-       "And I got to do some {loved} today, which always helps."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@hatedwork",
-       "hates"
-      ],
-      "say": [
-       "Though I've been stuck doing {hated} again."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@jealous"
-      ],
-      "say": [
-       "And I'd like a room of my own, if it's not too much to ask."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@newcomer"
-      ],
-      "say": [
-       "Still finding my feet here, but I'm hopeful."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@unpaid"
-      ],
-      "say": [
-       "And those sellswords we didn't pay... I don't like the look of that."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@fight"
-      ],
-      "say": [
-       "I'm still sore from that fight."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@merry"
-      ],
-      "say": [
-       "I feel like dancing!"
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@rags"
-      ],
-      "say": [
-       "And these clothes are falling apart."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@fineclothes"
-      ],
-      "say": [
-       "These new clothes help, I'll admit."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@comfy"
-      ],
-      "say": [
-       "And I've been comfortable, for once."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@execution"
-      ],
-      "say": [
-       "I can't stop thinking about that hanging."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@cannibalism"
-      ],
-      "say": [
-       "And I'm trying not to think about what we've been eating. Or who."
-      ],
-      "p": 6
-     }
-    ]
-   ]
-  },
-  {
-   "id": "mind",
-   "label": "What's on your mind?",
-   "order": 20,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "Nothing much. The work, mostly.",
-       "Oh, this and that. Whether the roof will hold. Whether the crops will.",
-       "Just wondering what next year will bring.",
-       "Whether we'll still be here in ten years.",
-       "Nothing worth your time."
-      ]
-     },
-     {
-      "when": [],
-      "say": [
-       "I was thinking about {town}. I wonder what's left of it.",
-       "My old home, {town}. Funny what you miss."
-      ]
-     },
-     {
-      "when": [
-       "food<3"
-      ],
-      "say": [
-       "Food. From the look of the stores, we've got {food} left. That frightens me.",
-       "The stores are nearly bare. What happens when they're empty?"
-      ],
-      "p": 5
-     },
-     {
-      "when": [
-       "food<1"
-      ],
-      "say": [
-       "The stores are empty. Empty! What are we going to eat?"
-      ],
-      "p": 7
-     },
-     {
-      "when": [
-       "food>=25"
-      ],
-      "say": [
-       "We're well stocked, at least. That's a comfort."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "season:autumn"
-      ],
-      "say": [
-       "Winter's coming. I hope we're ready.",
-       "The leaves are turning. We should be thinking about firewood and food."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "season:winter"
-      ],
-      "say": [
-       "Just getting through the winter. One day at a time.",
-       "Spring. I'm thinking about spring."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "season:spring"
-      ],
-      "say": [
-       "Spring. Time to plant, and time to hope.",
-       "Everything's growing again. It makes a body feel young."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "season:summer"
-      ],
-      "say": [
-       "Summer won't last. Best make use of it.",
-       "Long days. Good for work, bad for sleeping."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@grief"
-      ],
-      "say": [
-       "The one we lost. I keep thinking I'll see them at supper."
-      ],
-      "p": 6
-     },
-     {
-      "when": [
-       "rival"
-      ],
-      "say": [
-       "{Rival}, if you must know. We don't get along, and it's getting worse.",
-       "Honestly? How to get through a day without arguing with {rival}."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "friend"
-      ],
-      "say": [
-       "I was just thinking how glad I am that {friend} is here.",
-       "{Friend} told me a joke this morning. I'm still laughing."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "alone"
-      ],
-      "say": [
-       "How quiet it is. Just me and the wind out here.",
-       "Whether anyone else is out there. Whether they'll come."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "pop>=10"
-      ],
-      "say": [
-       "How much this place has grown. {Pop} of us now!"
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@faithneed"
-      ],
-      "say": [
-       "I need a place to pray. Somewhere proper."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "faith:christian"
-      ],
-      "say": [
-       "Whether {god} is watching over us out here.",
-       "I said a prayer this morning. For all of us."
-      ]
-     },
-     {
-      "when": [
-       "faith:pagan"
-      ],
-      "say": [
-       "The old gods. I wonder if they followed us here.",
-       "There's an old oak near here. I think it's sacred."
-      ]
-     },
-     {
-      "when": [
-       "@raidwon"
-      ],
-      "say": [
-       "That raid. We stood together. I won't forget it."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@raidlost"
-      ],
-      "say": [
-       "That raid. We weren't ready."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "mood<25"
-      ],
-      "say": [
-       "Whether I should just leave. I don't mean it. Mostly.",
-       "How everything goes wrong, no matter what I do."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@jealous"
-      ],
-      "say": [
-       "Why some folk get a room of their own and others don't."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@lonely"
-      ],
-      "say": [
-       "That I could use some company. A talk, a game, anything."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "night"
-      ],
-      "say": [
-       "The stars. You can see so many out here, far from the towns."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "day<6"
-      ],
-      "say": [
-       "How new this all is. A few days ago this was empty land."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@baddream"
-      ],
-      "say": [
-       "That dream. I keep thinking about that dream."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@drunk"
-      ],
-      "say": [
-       "Wha-? Oh. Nothing. Absolutely nothing. Is there more ale?"
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "perk:Gourmet"
-      ],
-      "say": [
-       "Supper. I'm always thinking about supper."
-      ]
-     },
-     {
-      "when": [
-       "perk:Bloodlust"
-      ],
-      "say": [
-       "When the next fight will come. I'm getting restless."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Contemplative"
-      ],
-      "say": [
-       "Everything, and nothing. The way the clouds move."
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  },
-  {
-   "id": "need",
-   "label": "Do you need anything?",
-   "order": 30,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "No, I'm all right. Thank you for asking.",
-       "Nothing I can think of.",
-       "Just more hours in the day.",
-       "Nothing, really. It's kind of you to ask."
-      ]
-     },
-     {
-      "when": [
-       "@starving"
-      ],
-      "say": [
-       "Food. Anything. Please."
-      ],
-      "p": 6
-     },
-     {
-      "when": [
-       "@hungry"
-      ],
-      "say": [
-       "A proper meal would be welcome.",
-       "Something to eat, if there's anything going."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@tired"
-      ],
-      "say": [
-       "Sleep. Let me rest a while, would you?"
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@sleptbad"
-      ],
-      "say": [
-       "A bed. A real bed, under a roof.",
-       "Somewhere to sleep that isn't the dirt."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@cold"
-      ],
-      "say": [
-       "Warmer clothes. Or a fire. Either would do.",
-       "Something warm to wear."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@hot"
-      ],
-      "say": [
-       "Some shade, and a drink of water."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "untended"
-      ],
-      "say": [
-       "Someone to look at this {wound}, before it festers.",
-       "A healer. This {wound} won't mend on its own."
-      ],
-      "p": 7
-     },
-     {
-      "when": [
-       "@bored"
-      ],
-      "say": [
-       "Something to do besides work. A game, a song, anything."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@lonely"
-      ],
-      "say": [
-       "Someone to talk to. You're doing that, I suppose."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@faithneed"
-      ],
-      "say": [
-       "A place to pray. A shrine, a chapel, a quiet corner."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@thirsty"
-      ],
-      "say": [
-       "A drink. Ale, wine, I'm not choosy."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@jealous"
-      ],
-      "say": [
-       "A room of my own. I'd look after it."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@atebad"
-      ],
-      "say": [
-       "Better food. I don't mean to complain, but..."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@ugly"
-      ],
-      "say": [
-       "For this place to be cleaned up a bit. It's grim."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@gloomy"
-      ],
-      "say": [
-       "A window. Just one window."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@hatedwork",
-       "hates"
-      ],
-      "say": [
-       "To be spared the {hated}, if you can manage it."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "loves",
-       "chance:40"
-      ],
-      "say": [
-       "More time at {loved}. That's where I'm happiest."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "mood>=75"
-      ],
-      "say": [
-       "Nothing at all. I've got what I need."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@rags"
-      ],
-      "say": [
-       "Decent clothes. These are rags."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@wet"
-      ],
-      "say": [
-       "To be dry. Just once, to be dry."
-      ],
-      "p": 3
-     }
-    ]
-   ]
-  },
-  {
-   "id": "work",
-   "label": "How's the work going?",
-   "order": 40,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "Steady.",
-       "There's always more to do than hands to do it.",
-       "It gets done.",
-       "Slow, but it's moving."
-      ]
-     },
-     {
-      "when": [
-       "passion"
-      ],
-      "say": [
-       "I've been at {loved}, and I love it. Time flies.",
-       "Give me {loved} and I'm happy all day."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "loves"
-      ],
-      "say": [
-       "Well, when it's {loved}. That I enjoy."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@hatedwork",
-       "hates"
-      ],
-      "say": [
-       "I've been doing {hated}, and I hate every moment.",
-       "Honestly? {Hated} again. I'm no good at it and I don't like it."
-      ],
-      "p": 4
-     },
-     {
-      "when": [
-       "@passionwork",
-       "loves"
-      ],
-      "say": [
-       "Good! I got to spend the day at {loved}."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@tired"
-      ],
-      "say": [
-       "Slow. I can barely keep my eyes open."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "mood<25"
-      ],
-      "say": [
-       "I can't keep my mind on it.",
-       "Badly. My heart's not in it."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "role"
-      ],
-      "say": [
-       "Being the village {role} keeps me busy enough."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@drunk"
-      ],
-      "say": [
-       "Work? Is that today?"
-      ],
-      "p": 4
-     }
-    ],
-    [
-     {
-      "when": [],
-      "say": [
-       ""
-      ]
-     },
-     {
-      "when": [
-       "hates",
-       "chance:50"
-      ],
-      "say": [
-       "Just don't put me on {hated}, if you can help it."
-      ]
-     },
-     {
-      "when": [
-       "chance:40"
-      ],
-      "say": [
-       "Still, I know my way around {bestskill} better than most."
-      ]
-     },
-     {
-      "when": [
-       "perk:Industrious"
-      ],
-      "say": [
-       "I like keeping busy. Idle hands and all that."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Sluggardly|Laggardly"
-      ],
-      "say": [
-       "Though I'll admit I'm not the quickest."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:GreenThumb"
-      ],
-      "say": [
-       "Plants just like me, I think."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Dullard"
-      ],
-      "say": [
-       "Some of it goes over my head, mind."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Strapping|Brawny"
-      ],
-      "say": [
-       "Nothing too heavy for these arms."
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  },
-  {
-   "id": "village",
-   "label": "What do you make of the village?",
-   "order": 50,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "It's a start. More than we had.",
-       "{Village}? It's ours. That counts for something.",
-       "Rough around the edges. Like the rest of us."
-      ]
-     },
-     {
-      "when": [
-       "pop<=3"
-      ],
-      "say": [
-       "Small. Just {pop} of us. Every pair of hands matters."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "alone"
-      ],
-      "say": [
-       "It's just me. A village of one."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "pop>=8"
-      ],
-      "say": [
-       "It's growing. {Pop} souls now. Who'd have thought?"
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "pop>=15"
-      ],
-      "say": [
-       "It's a proper village now. Maybe a town one day."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "food<3"
-      ],
-      "say": [
-       "We need more food in the stores. {Food} won't see us far."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "food<1"
-      ],
-      "say": [
-       "There's nothing in the stores. That's what I make of it."
-      ],
-      "p": 5
-     },
-     {
-      "when": [
-       "food>=30"
-      ],
-      "say": [
-       "The stores are full. That lets a body sleep at night."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@ugly"
-      ],
-      "say": [
-       "It's a bit of a mess, if I'm honest."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@pretty"
-      ],
-      "say": [
-       "It's becoming beautiful. I mean that."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@raidwon"
-      ],
-      "say": [
-       "Strong. We showed the raiders that."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@raidlost"
-      ],
-      "say": [
-       "Weak. That raid showed it. We need walls."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "day<10"
-      ],
-      "say": [
-       "It's only been {day} days. Give it time."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "day>=100"
-      ],
-      "say": [
-       "We've been here {day} days now. It's home."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "mood<25"
-      ],
-      "say": [
-       "Some days it feels like a prison with no walls."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@grief"
-      ],
-      "say": [
-       "Quieter, since we lost one of our own."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "season:winter"
-      ],
-      "say": [
-       "Cold and quiet. We'll see who's still smiling come spring."
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  },
-  {
-   "id": "self",
-   "label": "Tell me about yourself.",
-   "order": 60,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "Not much to tell. I'm from {town}.",
-       "I'm just {name}. A pair of hands, that's all."
-      ]
-     },
-     {
-      "when": [],
-      "say": [
-       "Not much to tell. I'm from {town}. I was a {background} before all this.",
-       "I grew up in {town} and worked as a {background}. Then the plague came and, well, here I am."
-      ]
-     },
-     {
-      "when": [
-       "bg:Monk|Nun"
-      ],
-      "say": [
-       "I was in holy orders, once. The cloister didn't survive the plague."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Soldier|Knight|Mercenary|Recruit|Archer|Marshal|Squire"
-      ],
-      "say": [
-       "I was a soldier. I've seen things I don't talk about.",
-       "I fought for a lord who's dead now. Most of them are."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Farmer|Cottar|Swineherd|Gardener|Franklin|Reeve"
-      ],
-      "say": [
-       "Farming folk, born and bred. Give me a field and I'll feed you."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Blacksmith|Armourer|Armorer|Arrowsmith|Farrier|Lorimer"
-      ],
-      "say": [
-       "I worked the forge. Hammer and anvil, all day long."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Healer|FieldDoctor|Barber|Herbalist|Infirmarian|Quacksalver|Recuperant"
-      ],
-      "say": [
-       "I tended the sick. When the plague came, there wasn't much I could do."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Chef|ArmyCook|Innkeep|Butcher|Brewster|Quartermaster"
-      ],
-      "say": [
-       "I fed people for a living. Still do, given half a chance."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Scribe|Tutor|Alchemist|Architect|Engineer|Marksage"
-      ],
-      "say": [
-       "I'm a person of letters. Books, figures, plans."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Hermit"
-      ],
-      "say": [
-       "I lived alone a long time before this. Folk still take some getting used to."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Courtesan"
-      ],
-      "say": [
-       "I kept company with rich folk. Let's leave it at that."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:GraveDigger"
-      ],
-      "say": [
-       "I dug graves. During the plague, I never stopped digging."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Peddler|Carter"
-      ],
-      "say": [
-       "I travelled the roads, buying and selling. I've seen half the country."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Hunter|FenScout|Bearbaiter"
-      ],
-      "say": [
-       "I hunted. The woods were my home more than any house."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Miner|NitreMiner|Delver"
-      ],
-      "say": [
-       "I worked underground. Strange to see so much sky now."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Carpenter|Builder|BrickMaker|Roofer|Wheelwright|Shipwright|MasterBuilder|Wright|Bowyer"
-      ],
-      "say": [
-       "I built things. Houses, carts, whatever needed building."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Tanner|Cordwainer|Cobbler|Netmaker|Berner"
-      ],
-      "say": [
-       "I worked with my hands. Leather, mostly."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "bg:Turnkey"
-      ],
-      "say": [
-       "I kept a gaol. Funny how the keys don't matter once everyone's dead."
-      ],
-      "p": 2
-     }
-    ],
-    [
-     {
-      "when": [],
-      "say": [
-       ""
-      ]
-     },
-     {
-      "when": [
-       "age<20"
-      ],
-      "say": [
-       "I'm young yet. Still figuring out who I am."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "age>=55"
-      ],
-      "say": [
-       "I've seen a lot of years. More than most out here."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Brawler"
-      ],
-      "say": [
-       "And I'm not afraid of a scrap, if it comes to that."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Gourmet"
-      ],
-      "say": [
-       "And I like my food. Good food, mind."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:NightOwl"
-      ],
-      "say": [
-       "I'm better at night. Mornings can go hang."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:EarlyBird"
-      ],
-      "say": [
-       "I'm up before the birds most days."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Ascetic"
-      ],
-      "say": [
-       "I don't need much. Never have."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Hedonist"
-      ],
-      "say": [
-       "I like the good things in life. Who doesn't?"
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Congenial|Outgoing"
-      ],
-      "say": [
-       "I like people. Most of them, anyway."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Churl"
-      ],
-      "say": [
-       "Folk say I'm hard to get along with. Folk can say what they like."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Wise|Erudite"
-      ],
-      "say": [
-       "I've always been a thinker."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Bloodlust"
-      ],
-      "say": [
-       "I won't lie, a good fight gets my blood going."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Benevolent"
-      ],
-      "say": [
-       "I try to look after people. Someone has to."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Swigger"
-      ],
-      "say": [
-       "And I enjoy a drink. More than one, usually."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Callous|Ruthless"
-      ],
-      "say": [
-       "I don't waste tears. Never have."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Winsome|Fair|Ravishing"
-      ],
-      "say": [
-       "And I've been told I'm easy on the eyes."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Disfigured|Illfavoured"
-      ],
-      "say": [
-       "I know I'm no beauty. I don't need reminding."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Industrious"
-      ],
-      "say": [
-       "Hard work never scared me."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Listless"
-      ],
-      "say": [
-       "I don't always have the spirit for things. I try."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Contemplative"
-      ],
-      "say": [
-       "I like quiet. Time to think."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "perk:Cannibal"
-      ],
-      "say": [
-       "And I have... unusual tastes. Best you don't ask."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "perk:Vigorous|Robust"
-      ],
-      "say": [
-       "Never been sick a day in my life. Well, nearly."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Infirm|Moribund"
-      ],
-      "say": [
-       "My health's never been good. I make do."
-      ],
-      "p": 2
-     }
-    ]
-   ]
-  },
-  {
-   "id": "faith",
-   "label": "Do you keep the faith?",
-   "order": 70,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "In my own way.",
-       "I'm not much for prayer, if I'm honest."
-      ]
-     },
-     {
-      "when": [
-       "faith:christian"
-      ],
-      "say": [
-       "I do. I pray to {god}, morning and night.",
-       "Aye. The plague tested my faith, but it held."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "faith:pagan"
-      ],
-      "say": [
-       "The old ways, aye. The gods of oak and stone.",
-       "I keep to the old gods. They were here before the church."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "faith:christian",
-       "chance:35"
-      ],
-      "say": [
-       "Some would call me {faithlevel}. I won't argue."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "faith:pagan",
-       "chance:35"
-      ],
-      "say": [
-       "Some would call me {faithlevel}. I won't argue."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "@faithneed"
-      ],
-      "say": [
-       "I do, but I've had nowhere to pray. It weighs on me."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@faithful"
-      ],
-      "say": [
-       "I do. And praying here gives me comfort."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "@faithless"
-      ],
-      "say": [
-       "Faith? No. I've seen too much to believe in anything."
-      ],
-      "p": 5
-     }
-    ]
-   ]
-  },
-  {
-   "id": "about",
-   "label": "What do you make of...",
-   "order": 75,
-   "about": true,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "{Other}? We get along. Not close, mind.",
-       "{Other}'s all right.",
-       "I don't know {o.him} that well, truth be told."
-      ]
-     },
-     {
-      "when": [
-       "o.friend"
-      ],
-      "say": [
-       "{Other}? A good friend. I'd trust {o.him} with my life.",
-       "I like {other}. We look out for each other."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.rival"
-      ],
-      "say": [
-       "{Other}? Don't get me started.",
-       "We don't get on. I'd rather not talk about {o.him}.",
-       "{Other} gets under my skin. Every single day."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.friend",
-       "o.likesme"
-      ],
-      "say": [
-       "{Other} and I are thick as thieves.",
-       "{Other}? Best friend I've got out here."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "o.friend",
-       "o.hatesme"
-      ],
-      "say": [
-       "I like {other}, but I don't think {o.he} likes me much."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "o.rival",
-       "o.likesme"
-      ],
-      "say": [
-       "{Other} keeps trying to be friendly. I'm not interested."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "o.neutral",
-       "o.likesme"
-      ],
-      "say": [
-       "{Other} seems to like me. I should get to know {o.him} better."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "o.neutral",
-       "o.hatesme"
-      ],
-      "say": [
-       "{Other} has something against me. I don't know what I did."
-      ],
-      "p": 2
-     }
-    ],
-    [
-     {
-      "when": [],
-      "say": [
-       ""
-      ]
-     },
-     {
-      "when": [
-       "o.untended"
-      ],
-      "say": [
-       "And someone needs to see to {o.his} wounds."
-      ],
-      "p": 3
-     },
-     {
-      "when": [
-       "o.wounded"
-      ],
-      "say": [
-       "{O.he} took a hurt lately. {O.he}'s mending."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.mood<25"
-      ],
-      "say": [
-       "{O.he}'s been miserable lately. Have you noticed?"
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "o.mood>=75"
-      ],
-      "say": [
-       "{O.he} seems happy these days."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "chance:50"
-      ],
-      "say": [
-       "{O.he}'s good at {o.bestskill}, I'll give {o.him} that."
-      ]
-     },
-     {
-      "when": [
-       "!o.samefaith",
-       "chance:50"
-      ],
-      "say": [
-       "We don't pray to the same gods, mind."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.perk:Churl"
-      ],
-      "say": [
-       "Bit of a sour one, though."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.perk:Congenial|Outgoing|Benevolent"
-      ],
-      "say": [
-       "Everyone likes {o.him}, really."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.perk:Swigger"
-      ],
-      "say": [
-       "Drinks like a fish, mind."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "o.perk:Cannibal"
-      ],
-      "say": [
-       "And I don't like the way {o.he} looks at me at supper."
-      ],
-      "p": 2
-     }
-    ]
-   ]
-  },
-  {
-   "id": "cheer",
-   "label": "Chin up. Things will get better.",
-   "when": [
-    "mood<45"
-   ],
-   "order": 80,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "I hope you're right.",
-       "Easy for you to say. But thank you.",
-       "Maybe. I'll try to believe it."
-      ]
-     },
-     {
-      "when": [
-       "mood<20"
-      ],
-      "say": [
-       "Will they? Will they really?",
-       "Words won't fill my belly. But I'll take them."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Churl"
-      ],
-      "say": [
-       "Don't patronise me."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "friend"
-      ],
-      "say": [
-       "I hope so. At least I've got {friend}."
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  },
-  {
-   "id": "praise",
-   "label": "You've been doing good work.",
-   "order": 85,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "Thank you, {title}. That means something.",
-       "Kind of you to say.",
-       "I try my best."
-      ]
-     },
-     {
-      "when": [
-       "mood<25"
-      ],
-      "say": [
-       "Do I? Doesn't feel like it.",
-       "Hm. Thanks, I suppose."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "mood>=70"
-      ],
-      "say": [
-       "Ha! Glad someone noticed.",
-       "It's a pleasure, honestly."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "perk:Churl"
-      ],
-      "say": [
-       "I know."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "@hatedwork",
-       "hates"
-      ],
-      "say": [
-       "Even the {hated}? Then it was worth it. Barely."
-      ],
-      "p": 2
-     },
-     {
-      "when": [
-       "passion"
-      ],
-      "say": [
-       "Ah, it's easy when you love the work."
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  },
-  {
-   "id": "rename",
-   "label": "Call me something else.",
-   "when": [
-    "title"
-   ],
-   "order": 95,
-   "ask": "retitle",
-   "noFollowUp": true,
-   "parts": []
-  },
-  {
-   "id": "bye",
-   "label": "That's all for now.",
-   "order": 99,
-   "close": true,
-   "parts": [
-    [
-     {
-      "when": [],
-      "say": [
-       "Right then.",
-       "Back to it, then.",
-       "Off you go, then."
-      ]
-     },
-     {
-      "when": [
-       "title"
-      ],
-      "say": [
-       "Aye, {title}.",
-       "Until later, {title}."
-      ]
-     },
-     {
-      "when": [
-       "mood<25"
-      ],
-      "say": [
-       "Fine.",
-       "Mm."
-      ],
-      "p": 1
-     },
-     {
-      "when": [
-       "mood>=70",
-       "title"
-      ],
-      "say": [
-       "Take care, {title}!",
-       "Mind how you go, {title}!"
-      ],
-      "p": 1
-     }
-    ]
-   ]
-  }
- ],
- "asks": [
-  {
-   "id": "title",
-   "manual": true,
-   "say": [
+  "greet": [
     {
-     "when": [],
-     "say": [
-      "Before you go on... we never settled what to call you. Lord? Chief? Your name? What would you like?",
-      "Can I ask something? What should we call you? It feels strange not having a word for it.",
-      "We've been arguing about what to call you. Some say lord, some say chief. What do you say?"
-     ]
+      "when": [
+        "title"
+      ],
+      "say": [
+        "{Title}. What can I do for you?",
+        "Aye, {title}?",
+        "You wanted a word, {title}?",
+        "{Title}! Good to see you.",
+        "Oh, {title}. Come, sit a moment."
+      ]
+    },
+    {
+      "when": [],
+      "say": [
+        "Aye?",
+        "You wanted a word?",
+        "Oh, hello there."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "mood<20"
+      ],
+      "say": [
+        "What now?",
+        "{Title}. If this is about work, I can barely stand.",
+        "Oh. It's you, {title}."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "mood<35"
+      ],
+      "say": [
+        "{Title}. What is it?",
+        "Aye, {title}? Make it quick, I'm not at my best."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "mood>=75"
+      ],
+      "say": [
+        "{Title}! Fine day, isn't it?",
+        "Ah, {title}! I was hoping you'd come by.",
+        "{Title}! What a day. What can I do for you?"
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "night"
+      ],
+      "say": [
+        "{Title}? At this hour?",
+        "Can't sleep either, {title}?"
+      ],
+      "p": 1
+    },
+    {
+      "when": [
+        "title",
+        "@justwoke"
+      ],
+      "say": [
+        "Mm. Barely awake, {title}. What is it?"
+      ],
+      "p": 1
+    },
+    {
+      "when": [
+        "title",
+        "@hungry"
+      ],
+      "say": [
+        "{Title}. Is there anything to eat about? Sorry. What is it?"
+      ],
+      "p": 1
+    },
+    {
+      "when": [
+        "title",
+        "season:winter"
+      ],
+      "say": [
+        "Cold one today, {title}.",
+        "{Title}. Mind the ice."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "@drunk"
+      ],
+      "say": [
+        "{Title}! My favourite person. Probably."
+      ],
+      "p": 2
+    },
+    {
+      "when": [
+        "title",
+        "@grief"
+      ],
+      "say": [
+        "{Title}. Sorry, I'm not much company today."
+      ],
+      "p": 2
+    },
+    {
+      "when": [
+        "title",
+        "standing>=3"
+      ],
+      "say": [
+        "{Title}. An honour, as always.",
+        "My {title}. What do you need of me?",
+        "{Title}! I didn't expect you to have time for the likes of me."
+      ],
+      "p": 1
+    },
+    {
+      "when": [
+        "title",
+        "standing>=4"
+      ],
+      "say": [
+        "My {title}. Everyone's talking about what you've built here.",
+        "{Title}. Look at this place. Who'd have thought, back when it was mud and tents?"
+      ],
+      "p": 2
+    },
+    {
+      "when": [
+        "title",
+        "standing<=0",
+        "mood>=35"
+      ],
+      "say": [
+        "Oh, it's you. Pull up a log, {title}, we don't have chairs yet."
+      ],
+      "p": 1
+    },
+    {
+      "when": [
+        "title",
+        "snubbed"
+      ],
+      "p": 5,
+      "say": [
+        "Oh. Now you come, {title}. I asked for you yesterday.",
+        "{Title}. I waited for you, you know. Never mind.",
+        "So you do have a moment for me after all, {title}.",
+        "Ah, {title}. I'd stopped expecting you."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "snubbed",
+        "mood<30"
+      ],
+      "p": 6,
+      "say": [
+        "Now? I needed you yesterday, {title}.",
+        "Don't trouble yourself on my account, {title}. You didn't before."
+      ]
+    },
+    {
+      "when": [
+        "title",
+        "snubbedgood"
+      ],
+      "p": 5,
+      "say": [
+        "There you are, {title}! I had something to tell you yesterday, but it'll keep.",
+        "{Title}! You missed my news, you know. Ah well.",
+        "I went looking for you yesterday, {title}. Had good news, too."
+      ]
     }
-   ],
-   "options": [
+  ],
+  "topics": [
     {
-     "label": "Call me Lord.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Lord it is. I'll tell the others, my lord.",
-        "My lord. Ha. That'll take some getting used to."
-       ]
-      }
-     ],
-     "title": "Lord"
+      "id": "wound",
+      "label": "Let me see that wound.",
+      "when": [
+        "wounded"
+      ],
+      "order": 5,
+      "parts": [
+        [
+          {
+            "when": [
+              "wounded"
+            ],
+            "say": [
+              "It's my {wound}. It hurts, but I'll live.",
+              "Just a {wound}. I've had worse. Probably."
+            ]
+          },
+          {
+            "when": [
+              "untended"
+            ],
+            "say": [
+              "My {wound}. Nobody's looked at it yet, and it's getting worse.",
+              "Careful! It's raw. It hasn't been seen to."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@pain"
+            ],
+            "say": [
+              "Every step hurts.",
+              "It hurts more than I let on."
+            ],
+            "p": 2
+          }
+        ]
+      ]
     },
     {
-     "label": "Call me Lady.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Lady it is. I'll tell the others, my lady.",
-        "My lady. It suits you."
-       ]
-      }
-     ],
-     "title": "Lady"
+      "id": "how",
+      "label": "How are you holding up?",
+      "order": 10,
+      "parts": [
+        [
+          {
+            "when": [
+              "mood<20"
+            ],
+            "say": [
+              "Badly. I'm at the end of my rope.",
+              "Not well. Some days I wonder why we came here at all.",
+              "Honestly? I could scream. Or weep. I haven't decided which.",
+              "I'm hanging on by a thread, {title}."
+            ]
+          },
+          {
+            "when": [
+              "mood<35"
+            ],
+            "say": [
+              "Not great, if I'm honest.",
+              "I've had better days. Many better days.",
+              "Tired and sour. Don't take it personally.",
+              "Low. I'll get through it."
+            ]
+          },
+          {
+            "when": [
+              "mood<55"
+            ],
+            "say": [
+              "Getting by.",
+              "Well enough, I suppose.",
+              "Fair to middling, as my mother used to say.",
+              "Can't complain. Well, I could, but who'd listen?"
+            ]
+          },
+          {
+            "when": [
+              "mood<75"
+            ],
+            "say": [
+              "Good, {title}. Truly.",
+              "Better than I expected, out here.",
+              "I'm well. The work keeps my mind busy.",
+              "Not bad at all."
+            ]
+          },
+          {
+            "when": [
+              "mood>=75"
+            ],
+            "say": [
+              "Wonderful! I can't remember the last time I felt this good.",
+              "Never better, {title}.",
+              "Happy, believe it or not. This place is starting to feel like home.",
+              "I feel like I could lift a cart."
+            ]
+          }
+        ],
+        [
+          {
+            "when": [],
+            "say": [
+              ""
+            ]
+          },
+          {
+            "when": [
+              "mood<45"
+            ],
+            "say": [
+              "If you want to know, it's mostly this: {worst}.",
+              "{Worst}. That's what's weighing on me."
+            ]
+          },
+          {
+            "when": [
+              "mood>=60"
+            ],
+            "say": [
+              "{Best}, that's what's done it.",
+              "It's the little things. {Best}, for one."
+            ]
+          },
+          {
+            "when": [
+              "@starving"
+            ],
+            "say": [
+              "My belly's been empty so long it's stopped growling.",
+              "I'm starving. Really starving."
+            ],
+            "p": 5
+          },
+          {
+            "when": [
+              "@hungry"
+            ],
+            "say": [
+              "I could do with a meal, though.",
+              "My stomach's been grumbling since morning."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@exhausted"
+            ],
+            "say": [
+              "And I'm so tired I could sleep standing up."
+            ],
+            "p": 5
+          },
+          {
+            "when": [
+              "@tired"
+            ],
+            "say": [
+              "And I'm dead on my feet.",
+              "I'd give a lot for a few hours of sleep."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@cold"
+            ],
+            "say": [
+              "And I can't get warm, no matter what I do.",
+              "This cold gets into the bones."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@hot"
+            ],
+            "say": [
+              "This heat is wearing me down.",
+              "I'm sweating like a smith at the forge."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@wet"
+            ],
+            "say": [
+              "And I'm soaked through.",
+              "I'd like to be dry again, one day."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "untended"
+            ],
+            "say": [
+              "This {wound} hasn't been seen to, and it hurts.",
+              "My {wound} needs tending. It's getting worse."
+            ],
+            "p": 6
+          },
+          {
+            "when": [
+              "wounded"
+            ],
+            "say": [
+              "The {wound} still aches, but it's been seen to.",
+              "My {wound} is mending, slowly."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@grief"
+            ],
+            "say": [
+              "And I can't stop thinking about the one we lost.",
+              "I keep seeing the grave in my mind."
+            ],
+            "p": 6
+          },
+          {
+            "when": [
+              "@death"
+            ],
+            "say": [
+              "There's been too much death around here.",
+              "I keep thinking about that body."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@rivalgone"
+            ],
+            "say": [
+              "I won't pretend I miss everyone who's gone."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@sleptbad"
+            ],
+            "say": [
+              "Sleeping on the bare ground doesn't help.",
+              "My back is in knots from sleeping in the dirt."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@lonely"
+            ],
+            "say": [
+              "I've barely had a word with anyone in days.",
+              "It gets lonely."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@bored"
+            ],
+            "say": [
+              "Truth be told, I'm bored out of my skull. Work, eat, sleep, work.",
+              "I need something to do that isn't work."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@faithneed"
+            ],
+            "say": [
+              "And I haven't had a chance to pray. It weighs on me."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@thirsty"
+            ],
+            "say": [
+              "I could really use a drink.",
+              "My throat's been dry for days, if you take my meaning."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@drunk"
+            ],
+            "say": [
+              "And, er, I may have had a drink or two.",
+              "Is the ground moving, or is it me?"
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@stomach"
+            ],
+            "say": [
+              "My stomach's in a bad way. Something I ate."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@atebad"
+            ],
+            "say": [
+              "That last meal wasn't fit for pigs.",
+              "The food's been grim lately."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@atewell"
+            ],
+            "say": [
+              "That last meal was something else, though.",
+              "Good food helps more than you'd think."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@goodroom"
+            ],
+            "say": [
+              "And I'm sleeping well in that room of mine."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@badroom"
+            ],
+            "say": [
+              "My room is a miserable hole, though."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@gloomy"
+            ],
+            "say": [
+              "Those dark little rooms with no windows get to me."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@feastgood"
+            ],
+            "say": [
+              "And that feast! People will be talking about it for a year."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@feastbad"
+            ],
+            "say": [
+              "That feast was a disappointment, though. Let's not pretend otherwise."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@sermongood"
+            ],
+            "say": [
+              "That last gathering lifted my spirits."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@raidwon"
+            ],
+            "say": [
+              "And we sent those raiders running, didn't we?"
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@raidlost"
+            ],
+            "say": [
+              "I can't stop thinking about that raid. We lost."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@gooddream"
+            ],
+            "say": [
+              "I had the loveliest dream last night."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@baddream"
+            ],
+            "say": [
+              "I had a horrible dream last night. Can't shake it."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@ugly"
+            ],
+            "say": [
+              "This place could do with some tidying. It's grim to look at."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@pretty"
+            ],
+            "say": [
+              "And it's pleasant here. Someone's made it nice."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@passionwork",
+              "loves"
+            ],
+            "say": [
+              "And I got to do some {loved} today, which always helps."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@hatedwork",
+              "hates"
+            ],
+            "say": [
+              "Though I've been stuck doing {hated} again."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@jealous"
+            ],
+            "say": [
+              "And I'd like a room of my own, if it's not too much to ask."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@newcomer"
+            ],
+            "say": [
+              "Still finding my feet here, but I'm hopeful."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@unpaid"
+            ],
+            "say": [
+              "And those sellswords we didn't pay... I don't like the look of that."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@fight"
+            ],
+            "say": [
+              "I'm still sore from that fight."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@merry"
+            ],
+            "say": [
+              "I feel like dancing!"
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@rags"
+            ],
+            "say": [
+              "And these clothes are falling apart."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@fineclothes"
+            ],
+            "say": [
+              "These new clothes help, I'll admit."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@comfy"
+            ],
+            "say": [
+              "And I've been comfortable, for once."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@execution"
+            ],
+            "say": [
+              "I can't stop thinking about that hanging."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@cannibalism"
+            ],
+            "say": [
+              "And I'm trying not to think about what we've been eating. Or who."
+            ],
+            "p": 6
+          }
+        ]
+      ]
     },
     {
-     "label": "Call me Chief.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Chief. Good and simple. I like it.",
-        "Chief it is. I'll spread the word."
-       ]
-      }
-     ],
-     "title": "Chief"
+      "id": "mind",
+      "label": "What's on your mind?",
+      "order": 20,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "Nothing much. The work, mostly.",
+              "Oh, this and that. Whether the roof will hold. Whether the crops will.",
+              "Just wondering what next year will bring.",
+              "Whether we'll still be here in ten years.",
+              "Nothing worth your time."
+            ]
+          },
+          {
+            "when": [],
+            "say": [
+              "I was thinking about {town}. I wonder what's left of it.",
+              "My old home, {town}. Funny what you miss."
+            ]
+          },
+          {
+            "when": [
+              "larder<3"
+            ],
+            "say": [
+              "Food. From the look of the stores, we've got {food} left. That frightens me.",
+              "The stores are nearly bare. What happens when they're empty?"
+            ],
+            "p": 5
+          },
+          {
+            "when": [
+              "larder<1"
+            ],
+            "say": [
+              "The stores are empty. Empty! What are we going to eat?"
+            ],
+            "p": 7
+          },
+          {
+            "when": [
+              "food>=25"
+            ],
+            "say": [
+              "We're well stocked, at least. That's a comfort."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "season:autumn"
+            ],
+            "say": [
+              "Winter's coming. I hope we're ready.",
+              "The leaves are turning. We should be thinking about firewood and food."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "season:winter"
+            ],
+            "say": [
+              "Just getting through the winter. One day at a time.",
+              "Spring. I'm thinking about spring."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "season:spring"
+            ],
+            "say": [
+              "Spring. Time to plant, and time to hope.",
+              "Everything's growing again. It makes a body feel young."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "season:summer"
+            ],
+            "say": [
+              "Summer won't last. Best make use of it.",
+              "Long days. Good for work, bad for sleeping."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@grief"
+            ],
+            "say": [
+              "The one we lost. I keep thinking I'll see them at supper."
+            ],
+            "p": 6
+          },
+          {
+            "when": [
+              "rival"
+            ],
+            "say": [
+              "{Rival}, if you must know. We don't get along, and it's getting worse.",
+              "Honestly? How to get through a day without arguing with {rival}."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "friend"
+            ],
+            "say": [
+              "I was just thinking how glad I am that {friend} is here.",
+              "{Friend} told me a joke this morning. I'm still laughing."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "alone"
+            ],
+            "say": [
+              "How quiet it is. Just me and the wind out here.",
+              "Whether anyone else is out there. Whether they'll come."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "pop>=10"
+            ],
+            "say": [
+              "How much this place has grown. {Pop} of us now!"
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@faithneed"
+            ],
+            "say": [
+              "I need a place to pray. Somewhere proper."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "faith:christian"
+            ],
+            "say": [
+              "Whether {god} is watching over us out here.",
+              "I said a prayer this morning. For all of us."
+            ]
+          },
+          {
+            "when": [
+              "faith:pagan"
+            ],
+            "say": [
+              "The old gods. I wonder if they followed us here.",
+              "There's an old oak near here. I think it's sacred."
+            ]
+          },
+          {
+            "when": [
+              "@raidwon"
+            ],
+            "say": [
+              "That raid. We stood together. I won't forget it."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@raidlost"
+            ],
+            "say": [
+              "That raid. We weren't ready."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "mood<25"
+            ],
+            "say": [
+              "Whether I should just leave. I don't mean it. Mostly.",
+              "How everything goes wrong, no matter what I do."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@jealous"
+            ],
+            "say": [
+              "Why some folk get a room of their own and others don't."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@lonely"
+            ],
+            "say": [
+              "That I could use some company. A talk, a game, anything."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "night"
+            ],
+            "say": [
+              "The stars. You can see so many out here, far from the towns."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "day<6"
+            ],
+            "say": [
+              "How new this all is. A few days ago this was empty land."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@baddream"
+            ],
+            "say": [
+              "That dream. I keep thinking about that dream."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@drunk"
+            ],
+            "say": [
+              "Wha-? Oh. Nothing. Absolutely nothing. Is there more ale?"
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "perk:Gourmet"
+            ],
+            "say": [
+              "Supper. I'm always thinking about supper."
+            ]
+          },
+          {
+            "when": [
+              "perk:Bloodlust"
+            ],
+            "say": [
+              "When the next fight will come. I'm getting restless."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Contemplative"
+            ],
+            "say": [
+              "Everything, and nothing. The way the clouds move."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "food<2",
+              "larder>=3"
+            ],
+            "p": 1,
+            "say": [
+              "There's meat on those carcasses, {title}, but someone has to butcher it before anyone eats.",
+              "We've hardly anything ready to eat. The carcasses need cutting up, and soon."
+            ]
+          }
+        ]
+      ]
     },
     {
-     "label": "Call me Captain.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Captain! As if we're all on one ship. Fair enough.",
-        "Aye aye, Captain."
-       ]
-      }
-     ],
-     "title": "Captain"
+      "id": "need",
+      "label": "Do you need anything?",
+      "order": 30,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "No, I'm all right. Thank you for asking.",
+              "Nothing I can think of.",
+              "Just more hours in the day.",
+              "Nothing, really. It's kind of you to ask."
+            ]
+          },
+          {
+            "when": [
+              "@starving"
+            ],
+            "say": [
+              "Food. Anything. Please."
+            ],
+            "p": 6
+          },
+          {
+            "when": [
+              "@hungry"
+            ],
+            "say": [
+              "A proper meal would be welcome.",
+              "Something to eat, if there's anything going."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@tired"
+            ],
+            "say": [
+              "Sleep. Let me rest a while, would you?"
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@sleptbad"
+            ],
+            "say": [
+              "A bed. A real bed, under a roof.",
+              "Somewhere to sleep that isn't the dirt."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@cold"
+            ],
+            "say": [
+              "Warmer clothes. Or a fire. Either would do.",
+              "Something warm to wear."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@hot"
+            ],
+            "say": [
+              "Some shade, and a drink of water."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "untended"
+            ],
+            "say": [
+              "Someone to look at this {wound}, before it festers.",
+              "A healer. This {wound} won't mend on its own."
+            ],
+            "p": 7
+          },
+          {
+            "when": [
+              "@bored"
+            ],
+            "say": [
+              "Something to do besides work. A game, a song, anything."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@lonely"
+            ],
+            "say": [
+              "Someone to talk to. You're doing that, I suppose."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@faithneed"
+            ],
+            "say": [
+              "A place to pray. A shrine, a chapel, a quiet corner."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@thirsty"
+            ],
+            "say": [
+              "A drink. Ale, wine, I'm not choosy."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@jealous"
+            ],
+            "say": [
+              "A room of my own. I'd look after it."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@atebad"
+            ],
+            "say": [
+              "Better food. I don't mean to complain, but..."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@ugly"
+            ],
+            "say": [
+              "For this place to be cleaned up a bit. It's grim."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@gloomy"
+            ],
+            "say": [
+              "A window. Just one window."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@hatedwork",
+              "hates"
+            ],
+            "say": [
+              "To be spared the {hated}, if you can manage it."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "loves",
+              "chance:40"
+            ],
+            "say": [
+              "More time at {loved}. That's where I'm happiest."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "mood>=75"
+            ],
+            "say": [
+              "Nothing at all. I've got what I need."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@rags"
+            ],
+            "say": [
+              "Decent clothes. These are rags."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@wet"
+            ],
+            "say": [
+              "To be dry. Just once, to be dry."
+            ],
+            "p": 3
+          }
+        ]
+      ]
     },
     {
-     "label": "Just call me friend.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Friend, then. I'd like that.",
-        "Friend it is. Not many lords would say that."
-       ]
-      }
-     ],
-     "title": "friend"
+      "id": "work",
+      "label": "How's the work going?",
+      "order": 40,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "Steady.",
+              "There's always more to do than hands to do it.",
+              "It gets done.",
+              "Slow, but it's moving."
+            ]
+          },
+          {
+            "when": [
+              "passion"
+            ],
+            "say": [
+              "I've been at {loved}, and I love it. Time flies.",
+              "Give me {loved} and I'm happy all day."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "loves"
+            ],
+            "say": [
+              "Well, when it's {loved}. That I enjoy."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@hatedwork",
+              "hates"
+            ],
+            "say": [
+              "I've been doing {hated}, and I hate every moment.",
+              "Honestly? {Hated} again. I'm no good at it and I don't like it."
+            ],
+            "p": 4
+          },
+          {
+            "when": [
+              "@passionwork",
+              "loves"
+            ],
+            "say": [
+              "Good! I got to spend the day at {loved}."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@tired"
+            ],
+            "say": [
+              "Slow. I can barely keep my eyes open."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "mood<25"
+            ],
+            "say": [
+              "I can't keep my mind on it.",
+              "Badly. My heart's not in it."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "role"
+            ],
+            "say": [
+              "Being the village {role} keeps me busy enough."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@drunk"
+            ],
+            "say": [
+              "Work? Is that today?"
+            ],
+            "p": 4
+          }
+        ],
+        [
+          {
+            "when": [],
+            "say": [
+              ""
+            ]
+          },
+          {
+            "when": [
+              "hates",
+              "chance:50"
+            ],
+            "say": [
+              "Just don't put me on {hated}, if you can help it."
+            ]
+          },
+          {
+            "when": [
+              "chance:40"
+            ],
+            "say": [
+              "Still, I know my way around {bestskill} better than most."
+            ]
+          },
+          {
+            "when": [
+              "perk:Industrious"
+            ],
+            "say": [
+              "I like keeping busy. Idle hands and all that."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Sluggardly|Laggardly"
+            ],
+            "say": [
+              "Though I'll admit I'm not the quickest."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:GreenThumb"
+            ],
+            "say": [
+              "Plants just like me, I think."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Dullard"
+            ],
+            "say": [
+              "Some of it goes over my head, mind."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Strapping|Brawny"
+            ],
+            "say": [
+              "Nothing too heavy for these arms."
+            ],
+            "p": 1
+          }
+        ]
+      ]
     },
     {
-     "label": "Something else...",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "{Title} it is. Easy to remember.",
-        "{Title}. Right. I'll make sure everyone knows."
-       ]
-      }
-     ],
-     "name": true
+      "id": "village",
+      "label": "What do you make of the village?",
+      "order": 50,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "It's a start. More than we had.",
+              "{Village}? It's ours. That counts for something.",
+              "Rough around the edges. Like the rest of us."
+            ]
+          },
+          {
+            "when": [
+              "pop<=3"
+            ],
+            "say": [
+              "Small. Just {pop} of us. Every pair of hands matters."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "alone"
+            ],
+            "say": [
+              "It's just me. A village of one."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "pop>=8"
+            ],
+            "say": [
+              "It's growing. {Pop} souls now. Who'd have thought?"
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "pop>=15"
+            ],
+            "say": [
+              "It's a proper village now. Maybe a town one day."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "larder<3"
+            ],
+            "say": [
+              "We need more food in the stores. {Food} won't see us far."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "larder<1"
+            ],
+            "say": [
+              "There's nothing in the stores. That's what I make of it."
+            ],
+            "p": 5
+          },
+          {
+            "when": [
+              "food>=30"
+            ],
+            "say": [
+              "The stores are full. That lets a body sleep at night."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@ugly"
+            ],
+            "say": [
+              "It's a bit of a mess, if I'm honest."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@pretty"
+            ],
+            "say": [
+              "It's becoming beautiful. I mean that."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@raidwon"
+            ],
+            "say": [
+              "Strong. We showed the raiders that."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@raidlost"
+            ],
+            "say": [
+              "Weak. That raid showed it. We need walls."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "day<10"
+            ],
+            "say": [
+              "It's only been {day} days. Give it time."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "day>=100"
+            ],
+            "say": [
+              "We've been here {day} days now. It's home."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "mood<25"
+            ],
+            "say": [
+              "Some days it feels like a prison with no walls."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@grief"
+            ],
+            "say": [
+              "Quieter, since we lost one of our own."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "season:winter"
+            ],
+            "say": [
+              "Cold and quiet. We'll see who's still smiling come spring."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "food<2",
+              "larder>=3"
+            ],
+            "p": 1,
+            "say": [
+              "The stores look thin, but there's good meat waiting on those carcasses. It just needs butchering.",
+              "Not much ready to eat. Get those carcasses butchered and we'll eat well for a while."
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "id": "self",
+      "label": "Tell me about yourself.",
+      "order": 60,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "Not much to tell. I'm from {town}.",
+              "I'm just {name}. A pair of hands, that's all."
+            ]
+          },
+          {
+            "when": [],
+            "say": [
+              "Not much to tell. I'm from {town}. I was a {background} before all this.",
+              "I grew up in {town} and worked as a {background}. Then the plague came and, well, here I am."
+            ]
+          },
+          {
+            "when": [
+              "bg:Monk|Nun"
+            ],
+            "say": [
+              "I was in holy orders, once. The cloister didn't survive the plague."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Soldier|Knight|Mercenary|Recruit|Archer|Marshal|Squire"
+            ],
+            "say": [
+              "I was a soldier. I've seen things I don't talk about.",
+              "I fought for a lord who's dead now. Most of them are."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Farmer|Cottar|Swineherd|Gardener|Franklin|Reeve"
+            ],
+            "say": [
+              "Farming folk, born and bred. Give me a field and I'll feed you."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Blacksmith|Armourer|Armorer|Arrowsmith|Farrier|Lorimer"
+            ],
+            "say": [
+              "I worked the forge. Hammer and anvil, all day long."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Healer|FieldDoctor|Barber|Herbalist|Infirmarian|Quacksalver|Recuperant"
+            ],
+            "say": [
+              "I tended the sick. When the plague came, there wasn't much I could do."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Chef|ArmyCook|Innkeep|Butcher|Brewster|Quartermaster"
+            ],
+            "say": [
+              "I fed people for a living. Still do, given half a chance."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Scribe|Tutor|Alchemist|Architect|Engineer|Marksage"
+            ],
+            "say": [
+              "I'm a person of letters. Books, figures, plans."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Hermit"
+            ],
+            "say": [
+              "I lived alone a long time before this. Folk still take some getting used to."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Courtesan"
+            ],
+            "say": [
+              "I kept company with rich folk. Let's leave it at that."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:GraveDigger"
+            ],
+            "say": [
+              "I dug graves. During the plague, I never stopped digging."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Peddler|Carter"
+            ],
+            "say": [
+              "I travelled the roads, buying and selling. I've seen half the country."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Hunter|FenScout|Bearbaiter"
+            ],
+            "say": [
+              "I hunted. The woods were my home more than any house."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Miner|NitreMiner|Delver"
+            ],
+            "say": [
+              "I worked underground. Strange to see so much sky now."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Carpenter|Builder|BrickMaker|Roofer|Wheelwright|Shipwright|MasterBuilder|Wright|Bowyer"
+            ],
+            "say": [
+              "I built things. Houses, carts, whatever needed building."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Tanner|Cordwainer|Cobbler|Netmaker|Berner"
+            ],
+            "say": [
+              "I worked with my hands. Leather, mostly."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "bg:Turnkey"
+            ],
+            "say": [
+              "I kept a gaol. Funny how the keys don't matter once everyone's dead."
+            ],
+            "p": 2
+          }
+        ],
+        [
+          {
+            "when": [],
+            "say": [
+              ""
+            ]
+          },
+          {
+            "when": [
+              "age<20"
+            ],
+            "say": [
+              "I'm young yet. Still figuring out who I am."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "age>=55"
+            ],
+            "say": [
+              "I've seen a lot of years. More than most out here."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Brawler"
+            ],
+            "say": [
+              "And I'm not afraid of a scrap, if it comes to that."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Gourmet"
+            ],
+            "say": [
+              "And I like my food. Good food, mind."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:NightOwl"
+            ],
+            "say": [
+              "I'm better at night. Mornings can go hang."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:EarlyBird"
+            ],
+            "say": [
+              "I'm up before the birds most days."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Ascetic"
+            ],
+            "say": [
+              "I don't need much. Never have."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Hedonist"
+            ],
+            "say": [
+              "I like the good things in life. Who doesn't?"
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Congenial|Outgoing"
+            ],
+            "say": [
+              "I like people. Most of them, anyway."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Churl"
+            ],
+            "say": [
+              "Folk say I'm hard to get along with. Folk can say what they like."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Wise|Erudite"
+            ],
+            "say": [
+              "I've always been a thinker."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Bloodlust"
+            ],
+            "say": [
+              "I won't lie, a good fight gets my blood going."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Benevolent"
+            ],
+            "say": [
+              "I try to look after people. Someone has to."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Swigger"
+            ],
+            "say": [
+              "And I enjoy a drink. More than one, usually."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Callous|Ruthless"
+            ],
+            "say": [
+              "I don't waste tears. Never have."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Winsome|Fair|Ravishing"
+            ],
+            "say": [
+              "And I've been told I'm easy on the eyes."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Disfigured|Illfavoured"
+            ],
+            "say": [
+              "I know I'm no beauty. I don't need reminding."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Industrious"
+            ],
+            "say": [
+              "Hard work never scared me."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Listless"
+            ],
+            "say": [
+              "I don't always have the spirit for things. I try."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Contemplative"
+            ],
+            "say": [
+              "I like quiet. Time to think."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "perk:Cannibal"
+            ],
+            "say": [
+              "And I have... unusual tastes. Best you don't ask."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "perk:Vigorous|Robust"
+            ],
+            "say": [
+              "Never been sick a day in my life. Well, nearly."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Infirm|Moribund"
+            ],
+            "say": [
+              "My health's never been good. I make do."
+            ],
+            "p": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "faith",
+      "label": "Do you keep the faith?",
+      "order": 70,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "In my own way.",
+              "I'm not much for prayer, if I'm honest."
+            ]
+          },
+          {
+            "when": [
+              "faith:christian"
+            ],
+            "say": [
+              "I do. I pray to {god}, morning and night.",
+              "Aye. The plague tested my faith, but it held."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "faith:pagan"
+            ],
+            "say": [
+              "The old ways, aye. The gods of oak and stone.",
+              "I keep to the old gods. They were here before the church."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "faith:christian",
+              "chance:35"
+            ],
+            "say": [
+              "Some would call me {faithlevel}. I won't argue."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "faith:pagan",
+              "chance:35"
+            ],
+            "say": [
+              "Some would call me {faithlevel}. I won't argue."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "@faithneed"
+            ],
+            "say": [
+              "I do, but I've had nowhere to pray. It weighs on me."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@faithful"
+            ],
+            "say": [
+              "I do. And praying here gives me comfort."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "@faithless"
+            ],
+            "say": [
+              "Faith? No. I've seen too much to believe in anything."
+            ],
+            "p": 5
+          }
+        ]
+      ]
+    },
+    {
+      "id": "about",
+      "label": "What do you make of...",
+      "order": 75,
+      "about": true,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "{Other}? We get along. Not close, mind.",
+              "{Other}'s all right.",
+              "I don't know {o.him} that well, truth be told."
+            ]
+          },
+          {
+            "when": [
+              "o.friend"
+            ],
+            "say": [
+              "{Other}? A good friend. I'd trust {o.him} with my life.",
+              "I like {other}. We look out for each other."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.rival"
+            ],
+            "say": [
+              "{Other}? Don't get me started.",
+              "We don't get on. I'd rather not talk about {o.him}.",
+              "{Other} gets under my skin. Every single day."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.friend",
+              "o.likesme"
+            ],
+            "say": [
+              "{Other} and I are thick as thieves.",
+              "{Other}? Best friend I've got out here."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "o.friend",
+              "o.hatesme"
+            ],
+            "say": [
+              "I like {other}, but I don't think {o.he} likes me much."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "o.rival",
+              "o.likesme"
+            ],
+            "say": [
+              "{Other} keeps trying to be friendly. I'm not interested."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "o.neutral",
+              "o.likesme"
+            ],
+            "say": [
+              "{Other} seems to like me. I should get to know {o.him} better."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "o.neutral",
+              "o.hatesme"
+            ],
+            "say": [
+              "{Other} has something against me. I don't know what I did."
+            ],
+            "p": 2
+          }
+        ],
+        [
+          {
+            "when": [],
+            "say": [
+              ""
+            ]
+          },
+          {
+            "when": [
+              "o.untended"
+            ],
+            "say": [
+              "And someone needs to see to {o.his} wounds."
+            ],
+            "p": 3
+          },
+          {
+            "when": [
+              "o.wounded"
+            ],
+            "say": [
+              "{O.he} took a hurt lately. {O.he}'s mending."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.mood<25"
+            ],
+            "say": [
+              "{O.he}'s been miserable lately. Have you noticed?"
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "o.mood>=75"
+            ],
+            "say": [
+              "{O.he} seems happy these days."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "chance:50"
+            ],
+            "say": [
+              "{O.he}'s good at {o.bestskill}, I'll give {o.him} that."
+            ]
+          },
+          {
+            "when": [
+              "!o.samefaith",
+              "chance:50"
+            ],
+            "say": [
+              "We don't pray to the same gods, mind."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.perk:Churl"
+            ],
+            "say": [
+              "Bit of a sour one, though."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.perk:Congenial|Outgoing|Benevolent"
+            ],
+            "say": [
+              "Everyone likes {o.him}, really."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.perk:Swigger"
+            ],
+            "say": [
+              "Drinks like a fish, mind."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "o.perk:Cannibal"
+            ],
+            "say": [
+              "And I don't like the way {o.he} looks at me at supper."
+            ],
+            "p": 2
+          }
+        ]
+      ]
+    },
+    {
+      "id": "cheer",
+      "label": "Chin up. Things will get better.",
+      "when": [
+        "mood<45"
+      ],
+      "order": 80,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "I hope you're right.",
+              "Easy for you to say. But thank you.",
+              "Maybe. I'll try to believe it."
+            ]
+          },
+          {
+            "when": [
+              "mood<20"
+            ],
+            "say": [
+              "Will they? Will they really?",
+              "Words won't fill my belly. But I'll take them."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Churl"
+            ],
+            "say": [
+              "Don't patronise me."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "friend"
+            ],
+            "say": [
+              "I hope so. At least I've got {friend}."
+            ],
+            "p": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "praise",
+      "label": "You've been doing good work.",
+      "order": 85,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "Thank you, {title}. That means something.",
+              "Kind of you to say.",
+              "I try my best."
+            ]
+          },
+          {
+            "when": [
+              "mood<25"
+            ],
+            "say": [
+              "Do I? Doesn't feel like it.",
+              "Hm. Thanks, I suppose."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "mood>=70"
+            ],
+            "say": [
+              "Ha! Glad someone noticed.",
+              "It's a pleasure, honestly."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "perk:Churl"
+            ],
+            "say": [
+              "I know."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "@hatedwork",
+              "hates"
+            ],
+            "say": [
+              "Even the {hated}? Then it was worth it. Barely."
+            ],
+            "p": 2
+          },
+          {
+            "when": [
+              "passion"
+            ],
+            "say": [
+              "Ah, it's easy when you love the work."
+            ],
+            "p": 1
+          }
+        ]
+      ]
+    },
+    {
+      "id": "rename",
+      "label": "Call me something else.",
+      "when": [
+        "title"
+      ],
+      "order": 95,
+      "ask": "retitle",
+      "noFollowUp": true,
+      "parts": []
+    },
+    {
+      "id": "bye",
+      "label": "That's all for now.",
+      "order": 99,
+      "close": true,
+      "parts": [
+        [
+          {
+            "when": [],
+            "say": [
+              "Right then.",
+              "Back to it, then.",
+              "Off you go, then."
+            ]
+          },
+          {
+            "when": [
+              "title"
+            ],
+            "say": [
+              "Aye, {title}.",
+              "Until later, {title}."
+            ]
+          },
+          {
+            "when": [
+              "mood<25"
+            ],
+            "say": [
+              "Fine.",
+              "Mm."
+            ],
+            "p": 1
+          },
+          {
+            "when": [
+              "mood>=70",
+              "title"
+            ],
+            "say": [
+              "Take care, {title}!",
+              "Mind how you go, {title}!"
+            ],
+            "p": 1
+          }
+        ]
+      ]
     }
-   ]
-  },
-  {
-   "id": "retitle",
-   "manual": true,
-   "say": [
+  ],
+  "asks": [
     {
-     "when": [],
-     "say": [
-      "Oh? What should we call you now, then?",
-      "Changing it, are we? Go on then."
-     ]
+      "id": "title",
+      "manual": true,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Before you go on... we never settled what to call you. Lord? Chief? Your name? What would you like?",
+            "Can I ask something? What should we call you? It feels strange not having a word for it.",
+            "We've been arguing about what to call you. Some say lord, some say chief. What do you say?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Call me Lord.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Lord it is. I'll tell the others, my lord.",
+                "My lord. Ha. That'll take some getting used to."
+              ]
+            }
+          ],
+          "title": "Lord"
+        },
+        {
+          "label": "Call me Lady.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Lady it is. I'll tell the others, my lady.",
+                "My lady. It suits you."
+              ]
+            }
+          ],
+          "title": "Lady"
+        },
+        {
+          "label": "Call me Chief.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Chief. Good and simple. I like it.",
+                "Chief it is. I'll spread the word."
+              ]
+            }
+          ],
+          "title": "Chief"
+        },
+        {
+          "label": "Call me Captain.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Captain! As if we're all on one ship. Fair enough.",
+                "Aye aye, Captain."
+              ]
+            }
+          ],
+          "title": "Captain"
+        },
+        {
+          "label": "Just call me friend.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Friend, then. I'd like that.",
+                "Friend it is. Not many lords would say that."
+              ]
+            }
+          ],
+          "title": "friend"
+        },
+        {
+          "label": "Something else...",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "{Title} it is. Easy to remember.",
+                "{Title}. Right. I'll make sure everyone knows."
+              ]
+            }
+          ],
+          "name": true
+        }
+      ]
     },
     {
-     "when": [
-      "pop>=12"
-     ],
-     "say": [
-      "Fitting, with how big we've grown. What will it be?"
-     ],
-     "p": 1
+      "id": "retitle",
+      "manual": true,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Oh? What should we call you now, then?",
+            "Changing it, are we? Go on then."
+          ]
+        },
+        {
+          "when": [
+            "pop>=12"
+          ],
+          "say": [
+            "Fitting, with how big we've grown. What will it be?"
+          ],
+          "p": 1
+        }
+      ],
+      "options": [
+        {
+          "label": "Keep it as it is.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Right you are, {title}.",
+                "{Title} it stays, then."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Call me Lord.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Lord it is. I'll tell the others, my lord.",
+                "My lord. Ha. That'll take some getting used to."
+              ]
+            }
+          ],
+          "title": "Lord"
+        },
+        {
+          "label": "Call me Lady.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Lady it is. I'll tell the others, my lady.",
+                "My lady. It suits you."
+              ]
+            }
+          ],
+          "title": "Lady"
+        },
+        {
+          "label": "Call me Chief.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Chief. Good and simple. I like it.",
+                "Chief it is. I'll spread the word."
+              ]
+            }
+          ],
+          "title": "Chief"
+        },
+        {
+          "label": "Call me Captain.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Captain! As if we're all on one ship. Fair enough.",
+                "Aye aye, Captain."
+              ]
+            }
+          ],
+          "title": "Captain"
+        },
+        {
+          "label": "Just call me friend.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Friend, then. I'd like that.",
+                "Friend it is. Not many lords would say that."
+              ]
+            }
+          ],
+          "title": "friend"
+        },
+        {
+          "label": "Call me Baron.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Baron! The village has come up in the world.",
+                "My lord Baron. I'll tell everyone."
+              ]
+            }
+          ],
+          "title": "Baron",
+          "when": [
+            "pop>=10"
+          ]
+        },
+        {
+          "label": "Call me Baroness.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Baroness! The village has come up in the world.",
+                "My lady Baroness. I'll tell everyone."
+              ]
+            }
+          ],
+          "title": "Baroness",
+          "when": [
+            "pop>=10"
+          ]
+        },
+        {
+          "label": "Call me King.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "A king! Of our own little kingdom. Long live the king, then.",
+                "Your Majesty. It has a ring to it."
+              ]
+            }
+          ],
+          "title": "Your Majesty",
+          "when": [
+            "pop>=20"
+          ]
+        },
+        {
+          "label": "Call me Queen.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "A queen! Of our own little kingdom. Long live the queen, then.",
+                "Your Majesty. It has a ring to it."
+              ]
+            }
+          ],
+          "title": "Your Majesty",
+          "when": [
+            "pop>=20"
+          ]
+        },
+        {
+          "label": "Something else...",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "{Title} it is. Easy to remember.",
+                "{Title}. Right. I'll make sure everyone knows."
+              ]
+            }
+          ],
+          "name": true
+        }
+      ]
+    },
+    {
+      "id": "title_upgrade",
+      "when": [
+        "title",
+        "pop>=12",
+        "!titleis:Baron|Baroness|Your Majesty"
+      ],
+      "chance": 8,
+      "cooldown": 30,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, folk have been talking. With so many of us now, they say we ought to call you something grander. Baron, perhaps?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Baron has a ring to it.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Baron it is! I'll tell everyone, my lord Baron."
+              ]
+            }
+          ],
+          "title": "Baron"
+        },
+        {
+          "label": "Baroness, then.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Baroness it is! I'll tell everyone, my lady."
+              ]
+            }
+          ],
+          "title": "Baroness"
+        },
+        {
+          "label": "No, {title} is fine.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Humble. I like that, {title}.",
+                "As you wish, {title}."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "title_kingdom",
+      "when": [
+        "title",
+        "pop>=20",
+        "!titleis:Your Majesty"
+      ],
+      "chance": 8,
+      "cooldown": 30,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, look at us. {Pop} souls. This isn't a village any more, it's a little kingdom. Shouldn't we call you Majesty?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Very well. Your Majesty it is.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Long live the crown! I'll tell everyone, Your Majesty."
+              ]
+            }
+          ],
+          "title": "Your Majesty"
+        },
+        {
+          "label": "No, {title} suits me.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "As you wish, {title}. Modest as ever."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food_worry",
+      "when": [
+        "larder<3",
+        "!@starving"
+      ],
+      "chance": 35,
+      "cooldown": 2,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Can I ask... are we going to have enough to eat? The stores look thin.",
+            "{Title}, the stores are nearly empty. What are we going to do?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll see to it. Nobody will starve.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Thank you. I'll hold you to that.",
+                "I believe you. I have to."
+              ]
+            },
+            {
+              "when": [
+                "mood<25"
+              ],
+              "say": [
+                "We'll see."
+              ],
+              "p": 1
+            }
+          ]
+        },
+        {
+          "label": "We'll all have to tighten our belts.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Tighter than this? Well. If we must.",
+                "Aye. Better hungry than dead, I suppose."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Stop worrying and get back to work.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Right. Sorry I asked."
+              ]
+            },
+            {
+              "when": [
+                "mood<30"
+              ],
+              "say": [
+                "Easy to say on a full stomach."
+              ],
+              "p": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bed",
+      "when": [
+        "@sleptbad"
+      ],
+      "chance": 35,
+      "cooldown": 3,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Will there be beds soon? Sleeping on the ground is wearing me down."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Beds are coming, I promise.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I'll dream about it. On the ground.",
+                "Thank you. My back thanks you too."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Make do for now.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Aye. Making do. It's what we do."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Build one yourself, then.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Maybe I will."
+              ]
+            },
+            {
+              "when": [
+                "perk:Churl"
+              ],
+              "say": [
+                "Maybe I'll build one and not share."
+              ],
+              "p": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cold",
+      "when": [
+        "@cold"
+      ],
+      "chance": 35,
+      "cooldown": 2,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "It's freezing. Could we get a fire going somewhere? Or warmer clothes?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll see to it.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Bless you. Quickly, if you can."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Keep moving, you'll warm up.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "That's what my father used to say. He lost two toes."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hated_work",
+      "when": [
+        "hates",
+        "@hatedwork"
+      ],
+      "chance": 40,
+      "cooldown": 3,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Could someone else take the {hated} for a while? I'm no good at it, and I hate it."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll find someone else.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Thank you. Truly."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Someone has to do it.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I know. I just wish it wasn't me."
+              ]
+            },
+            {
+              "when": [
+                "mood<30"
+              ],
+              "say": [
+                "Then let it be someone else for once."
+              ],
+              "p": 1
+            }
+          ]
+        },
+        {
+          "label": "You'll get better with practice.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Maybe. Or maybe I'll just get more miserable."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grief",
+      "when": [
+        "@grief"
+      ],
+      "chance": 50,
+      "cooldown": 5,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Do you think about them? The one we lost?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Every day.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "So do I.",
+                "Good. Someone should."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "We have to keep going.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I know. I know we do."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Tell me about them.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "They were kind. Kinder than this world deserved.",
+                "They laughed at everything. Even when things were bad."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lonely",
+      "when": [
+        "@lonely"
+      ],
+      "chance": 30,
+      "cooldown": 2,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Would you sit with me a while? Just to talk?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Of course.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Thank you. It's good to have company.",
+                "You don't know how much that helps."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Not now, I'm busy.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Of course. Another time.",
+                "Aye. Everyone's busy."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feast",
+      "when": [
+        "mood>=65",
+        "pop>=4",
+        "food>=10"
+      ],
+      "chance": 8,
+      "cooldown": 20,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Can I say something? We should have a feast. Celebrate what we've built."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Good idea. I'll plan one.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Wonderful! I'll tell the others."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "When the stores are fuller.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Fair. I'll hold you to it."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "We can't afford it.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Shame. A full belly makes for a happy village."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shrine",
+      "when": [
+        "@faithneed"
+      ],
+      "chance": 35,
+      "cooldown": 4,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Could we build a place to pray? A shrine, even a small one?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Yes, soon.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Bless you."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "There are more pressing things.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "There's nothing more pressing than the soul. But I understand."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Pray in the fields like everyone else.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I suppose {god} can hear me in a field as well as anywhere.",
+                "Hm."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rival",
+      "when": [
+        "rival"
+      ],
+      "chance": 15,
+      "cooldown": 7,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Rival} and I had words again. Could you have a talk with them?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll have a word.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Thank you. Somebody has to."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Sort it out between yourselves.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Fine. But don't blame me if it ends in a fight."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Whose fault was it?",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Theirs, obviously. Well. Mostly."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "winter",
+      "when": [
+        "season:autumn"
+      ],
+      "chance": 15,
+      "cooldown": 10,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Do you think we're ready for winter?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "We will be.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I hope so."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "We'll find out.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "That's what I'm afraid of."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "No. We need to work harder.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Then we'd better get to it."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thanks",
+      "when": [
+        "mood>=80",
+        "title"
+      ],
+      "chance": 10,
+      "cooldown": 10,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "I wanted to say... thank you. For bringing us here. For all of it."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Thank you for staying.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Where else would I go? But I mean it."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Don't thank me yet.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Ha. Fair enough."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Just doing what needs doing.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Aye. That's why I'm thanking you."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "survivors",
+      "when": [
+        "alone"
+      ],
+      "chance": 20,
+      "cooldown": 5,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Do you think others will come? Survivors, I mean."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "They'll come.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I hope so. It's quiet with just me."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "We don't need them.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Maybe. But it'd be nice to hear another voice."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "I don't know.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "No. Nobody does."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wound",
+      "when": [
+        "untended"
+      ],
+      "chance": 50,
+      "cooldown": 1,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Could someone look at my {wound}? It's getting worse."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll send someone.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Thank you."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "It'll heal on its own.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Will it? I'm not so sure."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Toughen up.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Easy to say when it's not your {wound}."
+              ]
+            },
+            {
+              "when": [
+                "perk:Bloodlust|Brawler"
+              ],
+              "say": [
+                "Ha. Aye. I've had worse."
+              ],
+              "p": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "when": [
+        "@thirsty"
+      ],
+      "chance": 30,
+      "cooldown": 2,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Any chance of a drink? Ale, wine... I'm not fussy."
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "I'll see what we have.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "You're a saint."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Not until the work's done.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Then I'd better work fast."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "You drink too much.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Do I? I'll drink to that."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "room",
+      "when": [
+        "@jealous"
+      ],
+      "chance": 30,
+      "cooldown": 5,
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "Some folk have rooms of their own. Could I have one too?"
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "When we can build one.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "I'll hold you to that."
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Everyone shares for now.",
+          "reply": [
+            {
+              "when": [],
+              "say": [
+                "Not everyone, it seems."
+              ]
+            }
+          ]
+        }
+      ]
     }
-   ],
-   "options": [
+  ],
+  "wants": [
     {
-     "label": "Keep it as it is.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Right you are, {title}.",
-        "{Title} it stays, then."
-       ]
-      }
-     ]
+      "id": "wound",
+      "when": [
+        "untended"
+      ],
+      "good": false,
+      "note": "your {wound} still hasn't been seen to, and it's getting worse",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, thank you for coming. It's this {wound}. Nobody's looked at it, and it's not getting better.",
+            "Sorry to pull you aside, {title}. My {wound}... it's throbbing. I don't think I can keep ignoring it.",
+            "{Title}. I hate to make a fuss, but this {wound} needs someone who knows what they're doing."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 50,
+      "cooldown": 2,
+      "p": 3,
+      "ask": "wound"
     },
     {
-     "label": "Call me Lord.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Lord it is. I'll tell the others, my lord.",
-        "My lord. Ha. That'll take some getting used to."
-       ]
-      }
-     ],
-     "title": "Lord"
+      "id": "hunger",
+      "when": [
+        "larder<1.5"
+      ],
+      "good": false,
+      "note": "there is almost nothing left to eat, and you're frightened of what comes next",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, I have to say it: there's next to nothing left to eat. What are we going to do?",
+            "I counted what's left, {title}. Or tried to. It won't last. I'm scared, if I'm honest.",
+            "Forgive me, {title}, but the food... there's hardly any. People are starting to whisper."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 40,
+      "cooldown": 2,
+      "p": 3,
+      "ask": "food_worry"
     },
     {
-     "label": "Call me Lady.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Lady it is. I'll tell the others, my lady.",
-        "My lady. It suits you."
-       ]
-      }
-     ],
-     "title": "Lady"
+      "id": "grief",
+      "when": [
+        "@grief"
+      ],
+      "good": false,
+      "note": "you've lost someone you cared about, and you needed to talk to someone",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}... do you have a moment? I can't stop thinking about them.",
+            "I'm sorry. I just needed someone to talk to, {title}. It's been hard since we lost them.",
+            "{Title}. I keep expecting to see them by the fire. I didn't know who else to come to."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 60,
+      "cooldown": 5,
+      "p": 3,
+      "ask": "grief"
     },
     {
-     "label": "Call me Chief.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Chief. Good and simple. I like it.",
-        "Chief it is. I'll spread the word."
-       ]
-      }
-     ],
-     "title": "Chief"
+      "id": "animal",
+      "when": [
+        "caresanimals",
+        "animaltrouble"
+      ],
+      "good": false,
+      "note": "{animal}, and it breaks your heart that nobody is seeing to it",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, it's {animal}. Please, someone has to see to the poor thing.",
+            "I can't bear it, {title}. {Animal}. Can't we do something?",
+            "Sorry to bother you, {title}, but it's {animal}. I keep going back to look and it's no better."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 45,
+      "cooldown": 2,
+      "p": 2
     },
     {
-     "label": "Call me Captain.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Captain! As if we're all on one ship. Fair enough.",
-        "Aye aye, Captain."
-       ]
-      }
-     ],
-     "title": "Captain"
-    },
-    {
-     "label": "Just call me friend.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Friend, then. I'd like that.",
-        "Friend it is. Not many lords would say that."
-       ]
-      }
-     ],
-     "title": "friend"
-    },
-    {
-     "label": "Call me Baron.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Baron! The village has come up in the world.",
-        "My lord Baron. I'll tell everyone."
-       ]
-      }
-     ],
-     "title": "Baron",
-     "when": [
-      "pop>=10"
-     ]
-    },
-    {
-     "label": "Call me Baroness.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Baroness! The village has come up in the world.",
-        "My lady Baroness. I'll tell everyone."
-       ]
-      }
-     ],
-     "title": "Baroness",
-     "when": [
-      "pop>=10"
-     ]
-    },
-    {
-     "label": "Call me King.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "A king! Of our own little kingdom. Long live the king, then.",
-        "Your Majesty. It has a ring to it."
-       ]
-      }
-     ],
-     "title": "Your Majesty",
-     "when": [
-      "pop>=20"
-     ]
-    },
-    {
-     "label": "Call me Queen.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "A queen! Of our own little kingdom. Long live the queen, then.",
-        "Your Majesty. It has a ring to it."
-       ]
-      }
-     ],
-     "title": "Your Majesty",
-     "when": [
-      "pop>=20"
-     ]
-    },
-    {
-     "label": "Something else...",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "{Title} it is. Easy to remember.",
-        "{Title}. Right. I'll make sure everyone knows."
-       ]
-      }
-     ],
-     "name": true
-    }
-   ]
-  },
-  {
-   "id": "title_upgrade",
-   "when": [
-    "title",
-    "pop>=12",
-    "!titleis:Baron|Baroness|Your Majesty"
-   ],
-   "chance": 8,
-   "cooldown": 30,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "{Title}, folk have been talking. With so many of us now, they say we ought to call you something grander. Baron, perhaps?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Baron has a ring to it.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Baron it is! I'll tell everyone, my lord Baron."
-       ]
-      }
-     ],
-     "title": "Baron"
-    },
-    {
-     "label": "Baroness, then.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Baroness it is! I'll tell everyone, my lady."
-       ]
-      }
-     ],
-     "title": "Baroness"
-    },
-    {
-     "label": "No, {title} is fine.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Humble. I like that, {title}.",
-        "As you wish, {title}."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "title_kingdom",
-   "when": [
-    "title",
-    "pop>=20",
-    "!titleis:Your Majesty"
-   ],
-   "chance": 8,
-   "cooldown": 30,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "{Title}, look at us. {Pop} souls. This isn't a village any more, it's a little kingdom. Shouldn't we call you Majesty?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Very well. Your Majesty it is.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Long live the crown! I'll tell everyone, Your Majesty."
-       ]
-      }
-     ],
-     "title": "Your Majesty"
-    },
-    {
-     "label": "No, {title} suits me.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "As you wish, {title}. Modest as ever."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "food_worry",
-   "when": [
-    "food<3",
-    "!@starving"
-   ],
-   "chance": 35,
-   "cooldown": 2,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Can I ask... are we going to have enough to eat? The stores look thin.",
-      "{Title}, the stores are nearly empty. What are we going to do?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll see to it. Nobody will starve.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Thank you. I'll hold you to that.",
-        "I believe you. I have to."
-       ]
-      },
-      {
-       "when": [
+      "id": "spirits",
+      "when": [
         "mood<25"
-       ],
-       "say": [
-        "We'll see."
-       ],
-       "p": 1
-      }
-     ]
+      ],
+      "good": false,
+      "note": "you're near the end of your rope, mostly because of this: {worst}",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, can I be honest with you? I'm not doing well. It's {worst}, mostly. It wears on me.",
+            "I don't want to complain, {title}. But I'm struggling. {Worst}. Every day.",
+            "{Title}. I'm at the end of my rope. I thought you should hear it from me."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 30,
+      "cooldown": 4,
+      "p": 2
     },
     {
-     "label": "We'll all have to tighten our belts.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Tighter than this? Well. If we must.",
-        "Aye. Better hungry than dead, I suppose."
-       ]
-      }
-     ]
+      "id": "lonely",
+      "when": [
+        "@lonely"
+      ],
+      "good": false,
+      "note": "you've been lonely, with nobody to really talk to lately",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}! Have you got a moment? I just... haven't had a proper talk with anyone in days.",
+            "Stay a bit, {title}? It's been quiet. Too quiet, for me."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 25,
+      "cooldown": 5,
+      "p": 1,
+      "ask": "lonely"
     },
     {
-     "label": "Stop worrying and get back to work.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Right. Sorry I asked."
-       ]
-      },
-      {
-       "when": [
-        "mood<30"
-       ],
-       "say": [
-        "Easy to say on a full stomach."
-       ],
-       "p": 1
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "bed",
-   "when": [
-    "@sleptbad"
-   ],
-   "chance": 35,
-   "cooldown": 3,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Will there be beds soon? Sleeping on the ground is wearing me down."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Beds are coming, I promise.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I'll dream about it. On the ground.",
-        "Thank you. My back thanks you too."
-       ]
-      }
-     ]
+      "id": "cold",
+      "when": [
+        "@cold"
+      ],
+      "good": false,
+      "note": "you've been freezing for days and want something done about it, warmer clothes or a fire",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, I can't feel my fingers. Can we do something about the cold?",
+            "Brr. {Title}, a word? It's this cold. It gets into your bones."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 25,
+      "cooldown": 4,
+      "p": 1,
+      "ask": "cold"
     },
     {
-     "label": "Make do for now.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Aye. Making do. It's what we do."
-       ]
-      }
-     ]
+      "id": "hated_work",
+      "when": [
+        "hates",
+        "@hatedwork",
+        "mood<45"
+      ],
+      "good": false,
+      "note": "you've been kept at {hated}, which you hate, and you'd like to be given other work",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, a word about the work? I've been at {hated} again and again. I'm not made for it.",
+            "Could I ask something, {title}? Is there anything else I could do besides {hated}?"
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 20,
+      "cooldown": 7,
+      "p": 1,
+      "ask": "hated_work"
     },
     {
-     "label": "Build one yourself, then.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Maybe I will."
-       ]
-      },
-      {
-       "when": [
-        "perk:Churl"
-       ],
-       "say": [
-        "Maybe I'll build one and not share."
-       ],
-       "p": 1
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "cold",
-   "when": [
-    "@cold"
-   ],
-   "chance": 35,
-   "cooldown": 2,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "It's freezing. Could we get a fire going somewhere? Or warmer clothes?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll see to it.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Bless you. Quickly, if you can."
-       ]
-      }
-     ]
+      "id": "room",
+      "when": [
+        "@jealous"
+      ],
+      "good": false,
+      "note": "you've been sleeping among everyone else and you long for a room of your own",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, this might sound selfish... but do you think I could have a room of my own one day?",
+            "A small thing, {title}. Some have their own rooms now. I'd like that too, someday."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 20,
+      "cooldown": 7,
+      "p": 1,
+      "ask": "room"
     },
     {
-     "label": "Keep moving, you'll warm up.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "That's what my father used to say. He lost two toes."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "hated_work",
-   "when": [
-    "hates",
-    "@hatedwork"
-   ],
-   "chance": 40,
-   "cooldown": 3,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Could someone else take the {hated} for a while? I'm no good at it, and I hate it."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll find someone else.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Thank you. Truly."
-       ]
-      }
-     ]
+      "id": "grown",
+      "when": [
+        "standingup"
+      ],
+      "good": true,
+      "note": "the village has grown into {standing}, and you're proud of what you've all built together",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}! Have you stood back and looked at this place lately? We're {standing} now. Who'd have thought?",
+            "I was walking the edge of the village this morning, {title}, and it hit me. Look at all this. We did this.",
+            "{Title}, I just wanted to say: when we came here it was mud and hope. Now look. You should be proud."
+          ],
+          "p": 0
+        },
+        {
+          "when": [
+            "standing>=4"
+          ],
+          "say": [
+            "Look at it, {title}! A proper stronghold. They'll be singing about this place."
+          ],
+          "p": 1
+        }
+      ],
+      "chance": 60,
+      "cooldown": 3,
+      "p": 3
     },
     {
-     "label": "Someone has to do it.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I know. I just wish it wasn't me."
-       ]
-      },
-      {
-       "when": [
-        "mood<30"
-       ],
-       "say": [
-        "Then let it be someone else for once."
-       ],
-       "p": 1
-      }
-     ]
+      "id": "raid",
+      "when": [
+        "@raidwon"
+      ],
+      "good": true,
+      "note": "you all beat off the raiders and you're proud and relieved",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}! Did you see them run? We held. We actually held!",
+            "We showed them, {title}. My hands are still shaking, but we showed them.",
+            "{Title}, I wanted to say: I'd stand beside this lot against anyone. We did well."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 50,
+      "cooldown": 5,
+      "p": 2
     },
     {
-     "label": "You'll get better with practice.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Maybe. Or maybe I'll just get more miserable."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "grief",
-   "when": [
-    "@grief"
-   ],
-   "chance": 50,
-   "cooldown": 5,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Do you think about them? The one we lost?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Every day.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "So do I.",
-        "Good. Someone should."
-       ]
-      }
-     ]
+      "id": "feast",
+      "when": [
+        "@feastgood"
+      ],
+      "good": true,
+      "note": "the feast was wonderful and you're still glowing from it",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, that feast! I haven't eaten like that since before the plague.",
+            "That was a night, {title}. Thank you. Everyone's still talking about it.",
+            "My belly's still full from the feast, {title}. We should do that more often!"
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 45,
+      "cooldown": 5,
+      "p": 2
     },
     {
-     "label": "We have to keep going.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I know. I know we do."
-       ]
-      }
-     ]
+      "id": "newcomer",
+      "when": [
+        "@newcomer"
+      ],
+      "good": true,
+      "note": "you've only just joined the village and you're glad to have found a place here",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, I wanted to thank you for taking me in. It's been a long time since I had somewhere to belong.",
+            "I'm still finding my feet, {title}, but I'm glad I'm here. Truly."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 50,
+      "cooldown": 30,
+      "p": 2
     },
     {
-     "label": "Tell me about them.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "They were kind. Kinder than this world deserved.",
-        "They laughed at everything. Even when things were bad."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "lonely",
-   "when": [
-    "@lonely"
-   ],
-   "chance": 30,
-   "cooldown": 2,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Would you sit with me a while? Just to talk?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Of course.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Thank you. It's good to have company.",
-        "You don't know how much that helps."
-       ]
-      }
-     ]
+      "id": "happy",
+      "when": [
+        "minmood>=65",
+        "pop>=3"
+      ],
+      "good": true,
+      "note": "everyone in the village has been in good spirits lately, and you wanted to tell them",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, have you noticed? Everyone's smiling these days. Even the grumpy ones.",
+            "I don't know what you're doing, {title}, but keep doing it. People are happy here.",
+            "Strange thing, {title}. I heard singing from three different places today. That's a good village."
+          ],
+          "p": 0
+        },
+        {
+          "when": [
+            "pop<=2"
+          ],
+          "say": [
+            "{Title}, it's just the two of us, but it's good. I wanted you to know that."
+          ],
+          "p": 1
+        }
+      ],
+      "chance": 15,
+      "cooldown": 10,
+      "p": 1
     },
     {
-     "label": "Not now, I'm busy.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Of course. Another time.",
-        "Aye. Everyone's busy."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "feast",
-   "when": [
-    "mood>=65",
-    "pop>=4",
-    "food>=10"
-   ],
-   "chance": 8,
-   "cooldown": 20,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Can I say something? We should have a feast. Celebrate what we've built."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Good idea. I'll plan one.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Wonderful! I'll tell the others."
-       ]
-      }
-     ]
+      "id": "sermon",
+      "when": [
+        "@sermongood"
+      ],
+      "good": true,
+      "note": "the last gathering for worship moved you, and you wanted to share that",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, that service... I felt something. I don't often say that.",
+            "I came away from the gathering lighter, {title}. I wanted to tell someone."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 30,
+      "cooldown": 7,
+      "p": 1
     },
     {
-     "label": "When the stores are fuller.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Fair. I'll hold you to it."
-       ]
-      }
-     ]
+      "id": "harvest",
+      "when": [
+        "food>=30",
+        "season:autumn"
+      ],
+      "good": true,
+      "note": "the stores are full going into winter, and for once you feel safe",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, have you seen how much we've put by? For the first time I'm not afraid of winter.",
+            "We'll eat this winter, {title}. I keep checking, and it's still there. It feels good."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 20,
+      "cooldown": 20,
+      "p": 1
     },
     {
-     "label": "We can't afford it.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Shame. A full belly makes for a happy village."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "shrine",
-   "when": [
-    "@faithneed"
-   ],
-   "chance": 35,
-   "cooldown": 4,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Could we build a place to pray? A shrine, even a small one?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Yes, soon.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Bless you."
-       ]
-      }
-     ]
+      "id": "pet",
+      "when": [
+        "haspet"
+      ],
+      "good": true,
+      "note": "{pet} has taken to following you everywhere, and you've grown fond of it",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, have you met {pet}? Won't leave my side. I think I've been adopted.",
+            "Look who's following me again, {title}. {Pet}. I'm getting rather attached."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 10,
+      "cooldown": 20,
+      "p": 0
     },
     {
-     "label": "There are more pressing things.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "There's nothing more pressing than the soul. But I understand."
-       ]
-      }
-     ]
+      "id": "good_room",
+      "when": [
+        "@goodroom",
+        "mood>=55"
+      ],
+      "good": true,
+      "note": "you slept beautifully in a fine room and wanted to say thank you",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, I slept like a king last night. Thank you for that room.",
+            "Best sleep I've had in years, {title}. Whoever built that room, give them my thanks."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 15,
+      "cooldown": 10,
+      "p": 0
     },
     {
-     "label": "Pray in the fields like everyone else.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I suppose {god} can hear me in a field as well as anywhere.",
-        "Hm."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "rival",
-   "when": [
-    "rival"
-   ],
-   "chance": 15,
-   "cooldown": 7,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "{Rival} and I had words again. Could you have a talk with them?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll have a word.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Thank you. Somebody has to."
-       ]
-      }
-     ]
+      "id": "dream",
+      "when": [
+        "@gooddream"
+      ],
+      "good": true,
+      "note": "you had a lovely dream and woke up happy",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}! I had the loveliest dream. I woke up smiling and wanted to tell someone.",
+            "Don't laugh, {title}, but I dreamt we'd built a great hall with a roof of gold. Woke up in a fine mood."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 20,
+      "cooldown": 7,
+      "p": 0
     },
     {
-     "label": "Sort it out between yourselves.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Fine. But don't blame me if it ends in a fight."
-       ]
-      }
-     ]
+      "id": "passion",
+      "when": [
+        "@passionwork",
+        "mood>=55"
+      ],
+      "good": true,
+      "note": "you spent the day at work you love, {loved}, and it felt wonderful",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, thank you for putting me to {loved}. It's what I was made for.",
+            "A good day's work, {title}. {Loved}. I could do it forever."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 12,
+      "cooldown": 7,
+      "p": 0
     },
     {
-     "label": "Whose fault was it?",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Theirs, obviously. Well. Mostly."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "winter",
-   "when": [
-    "season:autumn"
-   ],
-   "chance": 15,
-   "cooldown": 10,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Do you think we're ready for winter?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "We will be.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I hope so."
-       ]
-      }
-     ]
+      "id": "merry",
+      "when": [
+        "@merry"
+      ],
+      "good": true,
+      "note": "you've had a drink or two and you're in a grand, friendly mood",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}! Come here, come here. Have I told you you're the best thing that happened to this place?",
+            "Ha! {Title}! Sit, sit. Isn't life grand tonight?"
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 25,
+      "cooldown": 5,
+      "p": 0
     },
     {
-     "label": "We'll find out.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "That's what I'm afraid of."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "No. We need to work harder.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Then we'd better get to it."
-       ]
-      }
-     ]
+      "id": "thanks",
+      "when": [
+        "mood>=85"
+      ],
+      "good": true,
+      "note": "life here is good and you wanted to thank them for it",
+      "say": [
+        {
+          "when": [],
+          "say": [
+            "{Title}, I don't say it enough. Thank you. For all of this.",
+            "I just wanted to say, {title}: I'm happy here. I didn't think I'd be happy anywhere again."
+          ],
+          "p": 0
+        }
+      ],
+      "chance": 8,
+      "cooldown": 14,
+      "p": 0
     }
-   ]
-  },
-  {
-   "id": "thanks",
-   "when": [
-    "mood>=80",
-    "title"
-   ],
-   "chance": 10,
-   "cooldown": 10,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "I wanted to say... thank you. For bringing us here. For all of it."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "Thank you for staying.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Where else would I go? But I mean it."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "Don't thank me yet.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Ha. Fair enough."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "Just doing what needs doing.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Aye. That's why I'm thanking you."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "survivors",
-   "when": [
-    "alone"
-   ],
-   "chance": 20,
-   "cooldown": 5,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Do you think others will come? Survivors, I mean."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "They'll come.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I hope so. It's quiet with just me."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "We don't need them.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Maybe. But it'd be nice to hear another voice."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "I don't know.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "No. Nobody does."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "wound",
-   "when": [
-    "untended"
-   ],
-   "chance": 50,
-   "cooldown": 1,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Could someone look at my {wound}? It's getting worse."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll send someone.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Thank you."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "It'll heal on its own.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Will it? I'm not so sure."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "Toughen up.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Easy to say when it's not your {wound}."
-       ]
-      },
-      {
-       "when": [
-        "perk:Bloodlust|Brawler"
-       ],
-       "say": [
-        "Ha. Aye. I've had worse."
-       ],
-       "p": 1
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "drink",
-   "when": [
-    "@thirsty"
-   ],
-   "chance": 30,
-   "cooldown": 2,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Any chance of a drink? Ale, wine... I'm not fussy."
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "I'll see what we have.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "You're a saint."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "Not until the work's done.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Then I'd better work fast."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "You drink too much.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Do I? I'll drink to that."
-       ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "room",
-   "when": [
-    "@jealous"
-   ],
-   "chance": 30,
-   "cooldown": 5,
-   "say": [
-    {
-     "when": [],
-     "say": [
-      "Some folk have rooms of their own. Could I have one too?"
-     ]
-    }
-   ],
-   "options": [
-    {
-     "label": "When we can build one.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "I'll hold you to that."
-       ]
-      }
-     ]
-    },
-    {
-     "label": "Everyone shares for now.",
-     "reply": [
-      {
-       "when": [],
-       "say": [
-        "Not everyone, it seems."
-       ]
-      }
-     ]
-    }
-   ]
-  }
- ]
+  ]
 }

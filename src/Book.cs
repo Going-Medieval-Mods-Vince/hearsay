@@ -55,6 +55,22 @@ namespace Hearsay
         public string Ask;      // a follow-up question
     }
 
+    /// <summary>Something that makes a villager want a word with you: when <see cref="When"/> holds, a notice appears
+    /// and, once you come over, they speak first. <see cref="Note"/> tells the AI what it's about; <see cref="Say"/> is
+    /// the written opening line.</summary>
+    internal sealed class Want
+    {
+        public string Id;
+        public List<string> When = new List<string>();
+        public bool Good;              // good news rather than a worry (shown differently)
+        public string Note;            // for the AI: what is on their mind
+        public List<Line> Say = new List<Line>();
+        public string Ask;             // written mode: a question they put to you after the opening
+        public int Chance = 30;        // % chance per in-game hour while it holds
+        public int Cooldown = 7;       // in-game days before the same villager raises it again
+        public int P;                  // tried before lower ones
+    }
+
     internal sealed class Book
     {
         public Dictionary<string, string> Groups = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
@@ -62,6 +78,7 @@ namespace Hearsay
         public List<Line> Greet = new List<Line>();
         public List<Topic> Topics = new List<Topic>();
         public List<Ask> Asks = new List<Ask>();
+        public List<Want> Wants = new List<Want>();
 
         static Book loaded;
         static readonly Random rng = new Random();
@@ -86,7 +103,8 @@ namespace Hearsay
                 }
             int lines = b.Greet.Sum(l => l.Say.Count) + b.Topics.Sum(t => t.Parts.Sum(p => p.Sum(l => l.Say.Count)))
                         + b.Asks.Sum(a => a.Say.Sum(l => l.Say.Count) + a.Options.Sum(o => o.Reply.Sum(l => l.Say.Count)));
-            Plugin.Log.LogInfo($"Hearsay: dialogue ready, {b.Topics.Count} topics, {b.Asks.Count} questions, {lines} lines");
+            lines += b.Wants.Sum(w => w.Say.Sum(l => l.Say.Count));
+            Plugin.Log.LogInfo($"Hearsay: dialogue ready, {b.Topics.Count} topics, {b.Asks.Count} questions, {b.Wants.Count} reasons to ask for a word, {lines} lines");
             return loaded = b;
         }
 
@@ -123,6 +141,15 @@ namespace Hearsay
                 Asks.RemoveAll(x => x.Id == a.Id);
                 Asks.Add(a);
             }
+            foreach (var w in o.Wants ?? new List<Want>())
+            {
+                if (string.IsNullOrEmpty(w.Id)) continue;
+                w.Say = Clean(w.Say); w.When = w.When ?? new List<string>();
+                var mine = Wants.FirstOrDefault(x => x.Id == w.Id);
+                if (mine != null && w.When.Count == 0 && w.Note == null) { mine.Say.AddRange(w.Say); continue; }   // more lines for ours
+                Wants.RemoveAll(x => x.Id == w.Id);
+                Wants.Add(w);
+            }
         }
 
         static List<Line> Clean(List<Line> ls)
@@ -134,6 +161,7 @@ namespace Hearsay
 
         internal Topic Topic(string id) => Topics.FirstOrDefault(t => t.Id == id);
         internal Ask AskById(string id) => Asks.FirstOrDefault(a => a.Id == id);
+        internal Want WantById(string id) => Wants.FirstOrDefault(w => w.Id == id);
 
         /// <summary>Picks one line: the most specific that applies, avoiding what was said recently.</summary>
         internal static (string text, string key) Pick(List<Line> lines, Scene s, ICollection<string> recent)

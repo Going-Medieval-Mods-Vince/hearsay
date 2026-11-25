@@ -33,13 +33,23 @@ namespace Hearsay
         // ================= opening =================
         /// <summary>When the window opens: the first villager you ever talk to asks how to address you; otherwise
         /// a greeting if you haven't spoken today.</summary>
-        internal static void Opened(HumanoidInstance h)
+        internal static void Opened(HumanoidInstance h, Want want = null)
         {
             var v = VillageState.Current;
             if (v == null) return;
             aboutMenuFor = null; Naming = null;
             string key = VillageState.SettlerKey(h);
             var chat = v.ChatWith(h);
+            if (want != null && !v.Pending.ContainsKey(key))
+            {
+                // they asked for you: their opening, then perhaps a question
+                var s = SceneOf(h, v);
+                var (text, k) = Book.Pick(want.Say, s, Recent(chat));
+                if (text != null) { Add(v, h, false, text, k, null); v.Talked(h); }
+                if (want.Ask != null) Say(h, v, s, want.Ask, text);
+                v.Save();
+                if (text != null || want.Ask != null) return;
+            }
             if (v.Pending.ContainsKey(key)) return;
             if (string.IsNullOrEmpty(v.Title) && !v.Pending.Values.Contains("title"))
             {

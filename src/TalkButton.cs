@@ -84,7 +84,7 @@ namespace Hearsay
         }
 
         /// <summary>The game's own conversation icon (used for chats in the life log), or another speech-like one.</summary>
-        static Sprite Icon()
+        internal static Sprite Icon()
         {
             if (icon != null) return icon;
             var all = Resources.FindObjectsOfTypeAll<Sprite>();

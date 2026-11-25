@@ -37,15 +37,25 @@ namespace Hearsay
             Request(h, v);
         }
 
-        static void Request(HumanoidInstance h, VillageState v)
+        /// <summary>They asked for a word: they open the conversation, about <paramref name="open"/>.</summary>
+        internal static void Opener(HumanoidInstance h, Want want, OpenWant open)
+        {
+            var v = VillageState.Current;
+            if (v == null || h == null || IsWaiting(h)) return;
+            string about = open?.Note ?? want.Note ?? "something you wanted to tell them";
+            Request(h, v, $"You asked to have a word with the head of the village, and they have just come over. Speak first. " +
+                          $"What's on your mind: {about}. " + (want.Good ? "It's good news; let it show." : "Say it plainly, in your own way."));
+        }
+
+        static void Request(HumanoidInstance h, VillageState v, string opening = null)
         {
             string key = VillageState.SettlerKey(h);
             var chat = v.ChatWith(h);
             var turns = chat.Skip(Math.Max(0, chat.Count - Plugin.HistoryTurns.Value))
-                .Select(m => new Gemini.Turn { FromPlayer = m.FromPlayer, Text = m.Text }).ToList();
+                .Select(m => new Llm.Turn { FromPlayer = m.FromPlayer, Text = m.Text }).ToList();
             waiting.Add(key); LastError = null;
             Changed?.Invoke();
-            Gemini.Ask(SystemPrompt(h, v), turns, (reply, error) =>
+            Llm.Ask(SystemPrompt(h, v), turns, Present(h, opening), (reply, error) =>
             {
                 waiting.Remove(key);
                 if (error != null) { LastError = error; Plugin.Log.LogWarning("Hearsay: " + error); }
@@ -96,13 +106,54 @@ namespace Hearsay
             sb.AppendLine("Let your circumstances show: an empty belly, an untended wound, a grudge, a friend lost, good news. You have opinions and moods of your own; you can argue, tease, ask for things or say no.");
             sb.AppendLine("Stay inside your world. Talk only about what you could know: the facts below and what the head of the village tells you. When you don't know, admit it rather than invent it. Never make up amounts, stores, buildings, people or events that the facts below don't mention.");
             sb.AppendLine("The numbers below are for you to understand, not to recite. Nobody in the village speaks of levels or points.");
+            sb.AppendLine("The facts below are written like a game's notes; turn them into how a villager would say it. Never use game words such as forbidden, " +
+                          "off-limits, marked, stockpile, zone, stat, effect, buff, need, priority, schedule or job. Say it as life: \"you told us to leave that be\", " +
+                          "\"we've nothing put by\", \"I'm set to hauling\".");
             sb.AppendLine("Reply with speech only: no stage directions, no lists, no headings.");
             sb.AppendLine();
+            sb.AppendLine("WHAT YOU NOTICE AND WHAT YOU SAY");
+            sb.AppendLine("Each message from the head of the village comes with a note of how things stand right now. You live in the middle of it, so you know " +
+                          "all of it, but you don't recite it. Answer what you were asked. Raise something on your own only when it touches you or the things " +
+                          "close to your heart, or when it is serious (hunger, a bad wound, danger); at most one such worry per reply, and not one you've just " +
+                          "raised. Someone who cares about animals speaks up for a suffering beast; someone who doesn't might not even notice.");
+            sb.AppendLine("Nothing outside the notes and this conversation exists for you: if it isn't mentioned, you don't know about it.");
+            sb.AppendLine();
+            sb.AppendLine($"WHO {me.ToUpperInvariant()} IS");
+            sb.Append(Facts.Villager(h));
+            return sb.ToString();
+        }
+
+        /// <summary>A request for a word they made that you never answered, for them to bring up (or not) as they like.</summary>
+        static string Snubbed(HumanoidInstance h)
+        {
+            var v = VillageState.Current;
+            if (v == null || !v.Snubs.TryGetValue(VillageState.SettlerKey(h), out var sn)) return null;
+            int ago = Facts.Today() - sn.Day;
+            string when = ago <= 0 ? "Earlier today" : ago == 1 ? "Yesterday" : "A few days ago";
+            string about = string.IsNullOrEmpty(sn.Note) ? "" : $" ({sn.Note})";
+            string what = sn.Waved ? "they waved you off without coming over" : "they never came";
+            return sn.Good
+                ? $"Not answered: {when} you asked the head of the village for a word to share some good news{about}, and {what}. " +
+                  "You might mention it lightly, a little put out or just glad to tell it now; don't make much of it."
+                : $"Not answered: {when} you asked the head of the village for a word about something that worried you{about}, and {what}. " +
+                  "It stung. You may bring it up once, plainly or with an edge, as suits you, or let them notice your coolness; don't dwell on it, " +
+                  "and if they make amends, let it go.";
+        }
+
+        /// <summary>The state of things at this moment. Sent after the conversation, with the newest message, so that
+        /// everything before it (rules, who the villager is, the conversation so far) stays the same from one message
+        /// to the next and Google can serve it from its cache.</summary>
+        static string Present(HumanoidInstance h, string opening = null)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("[How things stand right now. For you only; the head of the village did not say this.]");
             sb.AppendLine("THE VILLAGE");
             sb.Append(Facts.Village());
-            sb.AppendLine();
-            sb.AppendLine($"ABOUT {me.ToUpperInvariant()}");
-            sb.Append(Facts.Villager(h));
+            sb.AppendLine($"{Facts.FirstName(h).ToUpperInvariant()} RIGHT NOW");
+            sb.Append(Facts.VillagerNow(h));
+            string snub = Snubbed(h);
+            if (snub != null) sb.AppendLine(snub);
+            sb.AppendLine(opening == null ? "[End of note. What the head of the village says to you:]" : $"[End of note. {opening}]");
             return sb.ToString();
         }
     }

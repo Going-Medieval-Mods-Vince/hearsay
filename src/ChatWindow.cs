@@ -54,7 +54,9 @@ namespace Hearsay
             popup.Show();
             if (title != null) title.text = Facts.FullName(h).ToUpperInvariant();
             input.text = "";
-            if (!Plugin.UseAI) Scripted.Opened(h);
+            var (want, open) = Wants.Take(h);   // they asked for a word: they speak first
+            if (!Plugin.UseAI) Scripted.Opened(h, want);
+            else if (want != null) Talk.Opener(h, want, open);
             Refresh();
             if (input.gameObject.activeInHierarchy) input.ActivateInputField();
         }
@@ -65,6 +67,8 @@ namespace Hearsay
         static bool Ensure()
         {
             if (popup != null && popup.Panel != null) return true;
+            // a new game or a loaded save rebuilds the game's interface: anything we made for the old one is gone
+            optionButtons.Clear(); optionActions.Clear(); choicesHeader = null;
             var p = Popup.Build("HearsayChat", Width, Height, null);
             if (p == null) return false;
             title = p.Title;
@@ -246,6 +250,13 @@ namespace Hearsay
                 return new List<Scripted.Item> { new Scripted.Item("Never mind", Scripted.CancelNaming) };
             if (!Plugin.UseAI) return Scripted.Menu(who);
             var v = VillageState.Current;
+            if (v != null && string.IsNullOrEmpty(v.Title))
+                // they're about to ask (or have asked) what to call you: offer the usual answers
+                return new[] { "Lord", "Lady", "Chief", "Captain", "Just call me friend" }
+                    .Select(t => new Scripted.Item(t.StartsWith("Just") ? t + "." : "Call me " + t + ".", () =>
+                    {
+                        if (!Talk.IsWaiting(who)) Talk.Send(who, t.StartsWith("Just") ? t + "." : "Call me " + t + ".");
+                    })).ToList();
             var s = Scene.Of(who, v, Book.Get(), false);
             return Book.Get().Topics.Where(t => !t.About && !t.Close && s.All(t.When)).OrderBy(t => t.Order).Take(Columns * 2)
                 .Select(t => s.Fill(t.Label)).Where(l => !string.IsNullOrEmpty(l))
