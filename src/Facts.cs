@@ -68,6 +68,7 @@ namespace Hearsay
         /// <summary>Localized name of anything with LocKeys (perk, background, effector, role...).</summary>
         internal static string Name(LocKeys[] keys, HumanoidInstance h = null)
         {
+            if (keys == null) return null;   // a villager without a role, backstory or nickname: the game logs an error on null
             string id = Safe(() => LocKeyUtils.GetName(keys));
             if (string.IsNullOrEmpty(id)) return null;
             return Plain(h != null ? Safe(() => L.GetText(id, h)) : Safe(() => L.GetText(id)));
@@ -75,6 +76,7 @@ namespace Hearsay
 
         static string Info(LocKeys[] keys, HumanoidInstance h = null)
         {
+            if (keys == null) return null;   // a villager without a role, backstory or nickname: the game logs an error on null
             string id = Safe(() => LocKeyUtils.GetInfo(keys));
             if (string.IsNullOrEmpty(id)) return null;
             return Plain(h != null ? Safe(() => L.GetText(id, h)) : Safe(() => L.GetText(id)));
