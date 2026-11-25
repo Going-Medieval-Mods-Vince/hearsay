@@ -1,7 +1,7 @@
 # In-game: a villager asks for a word on demand, the request lapses, the snub is remembered. Run: tools/gm-test.sh hearsay/tests/ingame/requests.txt hearsay
 waitfor menu 240
 wait 3
-dt_load latest
+dt_load ModTest
 waitfor game 300
 dt_speed pause
 wait 8
