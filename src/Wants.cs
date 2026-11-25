@@ -120,6 +120,53 @@ namespace Hearsay
             return false;
         }
 
+        // ================= developer console (DevCommands.cs) =================
+        /// <summary>Raises a request now, skipping the time, cooldown and chance checks; for testing.</summary>
+        internal static string DebugRaise(string id, string who)
+        {
+            var v = VillageState.Current;
+            if (v == null) return "No village loaded.";
+            var book = Book.Get();
+            var w = book.WantById(id);
+            if (w == null) return $"No reason '{id}'. hearsay_reasons lists them.";
+            var people = Facts.Villagers();
+            var h = string.IsNullOrEmpty(who) ? people.FirstOrDefault()
+                : people.FirstOrDefault(p => string.Equals(Facts.FirstName(p), who, StringComparison.OrdinalIgnoreCase) || string.Equals(Facts.FullName(p), who, StringComparison.OrdinalIgnoreCase));
+            if (h == null) return string.IsNullOrEmpty(who) ? "No villagers." : $"No villager called '{who}'.";
+            int now = HourNow();
+            string key = VillageState.SettlerKey(h);
+            var s = Scene.Of(h, v, book);
+            v.Wants[key] = new OpenWant { Id = w.Id, Note = w.Note == null ? null : s.Fill(w.Note), At = now };
+            v.WantLog[key + "|" + w.Id] = now / 24 + 1;
+            v.LastWantAt = now;
+            v.Save();
+            Sync(v);
+            Plugin.Log.LogInfo($"Hearsay: {Facts.FirstName(h)} would like a word ({w.Id}{(w.Good ? ", good news" : "")}) [console]");
+            return $"{Facts.FirstName(h)} would like a word ({w.Id}{(w.Good ? ", good news" : ", a worry")}); conditions {(s.All(w.When) ? "hold" : "do NOT hold")} right now.";
+        }
+
+        /// <summary>Every open request goes unanswered now, as if it had lapsed; for testing moods and snubs.</summary>
+        internal static string DebugLapse()
+        {
+            var v = VillageState.Current;
+            if (v == null) return "No village loaded.";
+            if (v.Wants.Count == 0) return "No open requests.";
+            var lapsed = v.Wants.ToList();
+            foreach (var kv in lapsed) { v.Wants.Remove(kv.Key); Unanswered(v, kv.Key, kv.Value, waved: false); }
+            v.Save();
+            Sync(v);
+            return $"{lapsed.Count} request(s) lapsed: " + string.Join(", ", lapsed.Select(kv => kv.Value.Id));
+        }
+
+        internal static string DebugState()
+        {
+            var v = VillageState.Current;
+            if (v == null) return "No village loaded.";
+            return $"village {v.Key}, title {(v.Title ?? "(not asked yet)")}, hour {HourNow()}, open: "
+                + (v.Wants.Count == 0 ? "none" : string.Join("; ", v.Wants.Select(kv => $"{kv.Key} {kv.Value.Id} at {kv.Value.At}")))
+                + ", snubs: " + (v.Snubs.Count == 0 ? "none" : string.Join("; ", v.Snubs.Select(kv => $"{kv.Key} {kv.Value.Id} day {kv.Value.Day}")));
+        }
+
         /// <summary>Called when you open a chat: hands over (and clears) what they wanted to talk about.</summary>
         internal static (Want want, OpenWant open) Take(HumanoidInstance h)
         {

@@ -72,7 +72,7 @@ namespace Hearsay
 
         static readonly Regex TitleTag = new Regex(@"\[\s*TITLE\s*:\s*([^\]]{1,40})\]", RegexOptions.IgnoreCase);
 
-        static string ReadTags(string reply, HumanoidInstance h, VillageState v)
+        internal static string ReadTags(string reply, HumanoidInstance h, VillageState v)
         {
             foreach (Match m in TitleTag.Matches(reply))
             {

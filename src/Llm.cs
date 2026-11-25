@@ -50,6 +50,20 @@ namespace Hearsay
         {
             var provider = Current;
             if (!Plugin.AiReady) { callback(null, "The AI isn't set up: add a server, key and model in the HEARSAY settings (top bar)."); return; }
+            var msgs = Build(turns, present);
+            Pump();
+            Task.Run(async () =>
+            {
+                string reply = null, error = null;
+                try { (reply, error) = await Exchange(provider, system, msgs).ConfigureAwait(false); }
+                catch (Exception e) { error = e.GetBaseException().Message; }
+                done.Enqueue(() => callback(reply, error));
+            });
+        }
+
+        /// <summary>Turns the chat into request messages: same-speaker turns merged, <paramref name="present"/> first in the newest player message.</summary>
+        internal static List<Msg> Build(List<Turn> turns, string present)
+        {
             var msgs = new List<Msg>();
             foreach (var t in turns)
             {
@@ -61,28 +75,25 @@ namespace Hearsay
                 if (msgs.Count == 0 || !msgs[msgs.Count - 1].User) msgs.Add(new Msg { User = true });
                 msgs[msgs.Count - 1].Parts.Insert(0, present);
             }
-            Pump();
-            Task.Run(async () =>
+            return msgs;
+        }
+
+        /// <summary>Sends the request; a server that refuses one of our settings (thinking, temperature, ...) is asked again without it, up to 4 times.</summary>
+        internal static async Task<(string reply, string error)> Exchange(IProvider provider, string system, List<Msg> msgs)
+        {
+            string reply = null, error = null;
+            var drop = new HashSet<string>();
+            for (int attempt = 0; attempt < 4; attempt++)
             {
-                string reply = null, error = null;
-                try
-                {
-                    // a server that refuses one of our settings (thinking, temperature, ...) gets asked again without it
-                    var drop = new HashSet<string>();
-                    for (int attempt = 0; attempt < 4; attempt++)
-                    {
-                        Usage usage;
-                        (reply, error, usage) = await provider.Send(system, msgs, drop).ConfigureAwait(false);
-                        if (error == null) { LogUsage(usage); break; }
-                        string refused = Refused(error, drop);
-                        if (refused == null) break;
-                        drop.Add(refused);
-                        Plugin.Log.LogInfo($"Hearsay: the server refused '{refused}', asking again without it");
-                    }
-                }
-                catch (Exception e) { error = e.GetBaseException().Message; }
-                done.Enqueue(() => callback(reply, error));
-            });
+                Usage usage;
+                (reply, error, usage) = await provider.Send(system, msgs, drop).ConfigureAwait(false);
+                if (error == null) { LogUsage(usage); break; }
+                string refused = Refused(error, drop);
+                if (refused == null) break;
+                drop.Add(refused);
+                Plugin.Log.LogInfo($"Hearsay: the server refused '{refused}', asking again without it");
+            }
+            return (reply, error);
         }
 
         static readonly string[] Optional = { "thinking", "reasoning", "max_tokens", "temperature" };
